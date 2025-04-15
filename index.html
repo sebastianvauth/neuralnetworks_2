@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Deep Learning? The Power of Data</title>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Neuron - Biological Inspiration and Artificial Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            font-size: 150%;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+            margin-top: 20px;
+        }
+        p, li {
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .image-placeholder, .interactive-placeholder, .continue-button, .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think, .math-explainer {
+            text-align: left;
+        }
+        .image-placeholder img, .interactive-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .vocab-section, .why-it-matters, .test-your-knowledge, .faq-section, .stop-and-think, .math-explainer {
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .vocab-section {
+            background-color: #f0f8ff;
+        }
+        .vocab-section h3 {
+            color: #1e90ff;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .vocab-section h4 {
+            color: #000;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .vocab-term {
+            font-weight: bold;
+            color: #1e90ff;
+        }
+        .why-it-matters {
+            background-color: #ffe6f0;
+        }
+        .why-it-matters h3 {
+            color: #d81b60;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .stop-and-think {
+            background-color: #e6e6ff;
+        }
+        .stop-and-think h3 {
+            color: #4b0082;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .continue-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .reveal-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #4b0082;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .test-your-knowledge {
+            background-color: #e6ffe6; /* Light green background */
+        }
+        .test-your-knowledge h3 {
+            color: #28a745; /* Dark green heading */
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .test-your-knowledge h4 {
+            color: #000;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .test-your-knowledge p {
+            margin-bottom: 15px;
+        }
+        .check-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            color: #ffffff;
+            background-color: #28a745; /* Green background */
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 1em;
+        }
+        .faq-section {
+            background-color: #fffbea; /* Light yellow background */
+        }
+        .faq-section h3 {
+            color: #ffcc00; /* Bright yellow heading */
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .faq-section h4 {
+            color: #000;
+            font-size: 0.9em;
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+        .math-explainer {
+            background-color: #f5f5f5; /* Light gray background */
+            border-left: 4px solid #007bff;
+        }
+        .math-explainer h3 {
+            color: #007bff;
+            font-size: 0.75em;
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .math-explainer .step {
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        .math-explainer .formula {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 1.2em;
+        }
+        .option {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .option:hover {
+            background-color: #f9f9f9;
+        }
+        .option.selected {
+            border-color: #28a745;
+            background-color: #e6ffe6;
+        }
+        .option-feedback {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .option-feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .option-feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .interactive-neuron {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .interactive-neuron .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .interactive-neuron .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        .interactive-neuron label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .interactive-neuron input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .interactive-neuron input[type="range"] {
+            width: 100%;
+        }
+        .interactive-neuron .calculation {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        .interactive-neuron .output {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 1.2em;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <section id="section1">
+<div class="image-placeholder">
+            <img src="images/1.png?height=300&width=600" alt="...">
+        </div>
+        <h1>The Neuron: Biological Inspiration & Artificial Model</h1>
+        
+        <p>In the last lesson, we saw the incredible impact of neural networks. But what <em>are</em> they, really? At their core, they're inspired by the biological networks in our brains, made up of cells called <strong>neurons</strong>.</p>
+<div class="continue-button" onclick="showNextSection(2)">Continue</div>
+    </section>
+
+    <section id="section2">
+<!-- Start: Looping Neuron Animation (Compact) -->
+<div id="looping-neuron-animation-compact">
+
+    <style>
+        /* Scoped styles */
+        #looping-neuron-animation-compact {
+            font-family: Arial, sans-serif;
+            padding: 0; /* No padding needed for the container */
+            background-color: #ffffff;
+            font-size: 100%;
+            /* border: 1px solid #eee; */ /* Frame/border removed */
+            border-radius: 8px; /* Keep rounding if desired, or remove */
+            overflow: hidden;
+            margin: 20px auto;
+            max-width: 550px; /* Reduced max-width slightly */
+            position: relative;
+        }
+
+        #looping-neuron-animation-compact svg {
+            display: block;
+            width: 100%;
+            height: auto;
+             /* Ensure SVG scales correctly without extra space */
+            overflow: visible; /* Keep allowing labels outside viewbox if needed, but position them better */
+        }
+
+        /* Neuron Parts */
+        #looping-neuron-animation-compact .neuron-part { fill: #e0eaf5; stroke: #6a9bc3; stroke-width: 1.5; }
+        #looping-neuron-animation-compact .nucleus { fill: #6a9bc3; stroke: none; }
+
+        /* Labels (Always Visible, Smaller, Repositioned) */
+        #looping-neuron-animation-compact .label {
+            font-size: 11px; /* Significantly smaller font size */
+            font-weight: bold;
+            fill: #555; /* Slightly darker grey */
+            text-anchor: middle;
+            dominant-baseline: middle; /* Better vertical centering */
+            pointer-events: none;
+            font-family: Arial, sans-serif;
+            opacity: 1;
+        }
+
+        /* Signal Styles (Unchanged) */
+        #looping-neuron-animation-compact .signal-dot { fill: #ffb84d; stroke: #e69500; stroke-width: 0.5; pointer-events: none; visibility: hidden; }
+        #looping-neuron-animation-compact .soma-pulse-dot { fill: #ffe066; stroke: #cca300; pointer-events: none; visibility: hidden; opacity: 0.8; }
+    </style>
+
+    <svg id="neuron-svg-compact" viewBox="0 0 400 250"> <!-- ViewBox remains the same, positioning is internal -->
+        <defs>
+            <!-- Paths (Unchanged) -->
+            <path id="signal-path-dendrite-1-compact" d="M 20,60 Q 50,70 100,80" stroke="none" fill="none"/>
+            <path id="signal-path-dendrite-2-compact" d="M 35,30 Q 60,50 100,80" stroke="none" fill="none"/>
+            <path id="signal-path-dendrite-3-compact" d="M 60,10 Q 80,40 100,80" stroke="none" fill="none"/>
+            <path id="signal-path-dendrite-4-compact" d="M 30,120 Q 60,100 100,80" stroke="none" fill="none"/>
+            <path id="signal-path-dendrite-5-compact" d="M 60,150 Q 80,120 100,80" stroke="none" fill="none"/>
+            <path id="signal-path-axon-compact" d="M 100,80 L 340,80" stroke="none" fill="none"/>
+            <path id="signal-path-terminal-1-compact" d="M 340,80 Q 350,70 360,75" stroke="none" fill="none"/>
+            <path id="signal-path-terminal-2-compact" d="M 340,80 Q 355,80 365,85" stroke="none" fill="none"/>
+            <path id="signal-path-terminal-3-compact" d="M 340,80 Q 350,90 360,95" stroke="none" fill="none"/>
+        </defs>
+
+        <!-- Neuron Drawing Groups (Unchanged) -->
+         <g id="axon-terminals-group-compact">
+            <path class="neuron-part" d="M340,80 Q350,70 360,75"/> <path class="neuron-part" d="M340,80 Q355,80 365,85"/> <path class="neuron-part" d="M340,80 Q350,90 360,95"/>
+            <circle class="neuron-part terminal-end" cx="360" cy="75" r="3"/> <circle class="neuron-part terminal-end" cx="365" cy="85" r="3"/> <circle class="neuron-part terminal-end" cx="360" cy="95" r="3"/>
+        </g>
+        <g id="axon-group-compact">
+             <rect class="neuron-part myelin" x="165" y="72" width="25" height="16" rx="3"/> <rect class="neuron-part myelin" x="200" y="72" width="25" height="16" rx="3"/> <rect class="neuron-part myelin" x="235" y="72" width="25" height="16" rx="3"/> <rect class="neuron-part myelin" x="270" y="72" width="25" height="16" rx="3"/> <rect class="neuron-part myelin" x="305" y="72" width="25" height="16" rx="3"/>
+             <path class="neuron-part axon-core" d="M140,80 H340" stroke-width="4"/>
+        </g>
+        <g id="soma-group-compact">
+            <circle class="neuron-part" cx="100" cy="80" r="40"/>
+            <circle class="nucleus" cx="100" cy="80" r="15"/>
+        </g>
+        <g id="dendrites-group-compact">
+            <path class="neuron-part" d="M60,80 Q40,70 20,60"/> <path class="neuron-part" d="M65,60 Q50,40 35,30"/> <path class="neuron-part" d="M80,50 Q70,25 60,10"/>
+            <path class="neuron-part" d="M70,100 Q50,110 30,120"/> <path class="neuron-part" d="M80,115 Q70,135 60,150"/>
+        </g>
+
+        <!-- Labels (Repositioned for better fit) -->
+        <text id="dendrites-label-compact" class="label" x="45" y="45">Dendrites</text>      <!-- Moved more top-left -->
+        <text id="soma-label-compact" class="label" x="100" y="128">Cell Body (Soma)</text> <!-- Slightly higher -->
+        <text id="axon-label-compact" class="label" x="240" y="65">Axon</text>             <!-- Moved slightly up and left -->
+        <text id="axon-terminals-label-compact" class="label" x="365" y="110">Axon Terminals</text> <!-- Moved slightly higher -->
+
+        <!-- Signal Elements (Unchanged structure, IDs updated) -->
+        <circle id="signal-dendrite-1-compact" class="signal-dot" r="4"><animateMotion id="anim-dendrite-1-compact" dur="0.8s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-dendrite-1-compact"/></animateMotion></circle>
+        <circle id="signal-dendrite-2-compact" class="signal-dot" r="4"><animateMotion id="anim-dendrite-2-compact" dur="0.9s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-dendrite-2-compact"/></animateMotion></circle>
+        <circle id="signal-dendrite-3-compact" class="signal-dot" r="4"><animateMotion id="anim-dendrite-3-compact" dur="1.0s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-dendrite-3-compact"/></animateMotion></circle>
+        <circle id="signal-dendrite-4-compact" class="signal-dot" r="4"><animateMotion id="anim-dendrite-4-compact" dur="0.85s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-dendrite-4-compact"/></animateMotion></circle>
+        <circle id="signal-dendrite-5-compact" class="signal-dot" r="4"><animateMotion id="anim-dendrite-5-compact" dur="0.95s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-dendrite-5-compact"/></animateMotion></circle>
+         <circle id="soma-pulse-dot-compact" class="soma-pulse-dot" cx="100" cy="80" r="5">
+             <animate id="anim-pulse-radius-compact" attributeName="r" values="5; 20; 5" dur="0.4s" begin="indefinite" fill="freeze" />
+             <animate id="anim-pulse-opacity-compact" attributeName="opacity" values="0.8; 1; 0.8" dur="0.4s" begin="indefinite" fill="freeze" />
+         </circle>
+        <circle id="signal-axon-compact" class="signal-dot" r="5">
+            <animateMotion id="anim-axon-compact" dur="1.2s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-axon-compact"/></animateMotion>
+        </circle>
+        <circle id="signal-terminal-1-compact" class="signal-dot" r="4"><animateMotion id="anim-terminal-1-compact" dur="0.5s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-terminal-1-compact"/></animateMotion></circle>
+        <circle id="signal-terminal-2-compact" class="signal-dot" r="4"><animateMotion id="anim-terminal-2-compact" dur="0.5s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-terminal-2-compact"/></animateMotion></circle>
+        <circle id="signal-terminal-3-compact" class="signal-dot" r="4"><animateMotion id="anim-terminal-3-compact" dur="0.5s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-terminal-3-compact"/></animateMotion></circle>
+
+    </svg>
+
+    <script>
+        (function() {
+            // Renamed container ID
+            const container = document.getElementById('looping-neuron-animation-compact');
+            if (!container) return;
+
+            // Update IDs used in script
+            const dendriteDotIds = [1, 2, 3, 4, 5].map(i => `signal-dendrite-${i}-compact`);
+            const dendriteAnimIds = [1, 2, 3, 4, 5].map(i => `anim-dendrite-${i}-compact`);
+            const terminalDotIds = [1, 2, 3].map(i => `signal-terminal-${i}-compact`);
+            const terminalAnimIds = [1, 2, 3].map(i => `anim-terminal-${i}-compact`);
+
+            const somaPulseDotId = 'soma-pulse-dot-compact';
+            const somaPulseRadiusAnimId = 'anim-pulse-radius-compact';
+            const somaPulseOpacityAnimId = 'anim-pulse-opacity-compact';
+            const axonDotId = 'signal-axon-compact';
+            const axonAnimId = 'anim-axon-compact';
+
+            const svg = container.querySelector('#neuron-svg-compact');
+
+            // --- Helper Functions (Unchanged) ---
+            function getElement(id) { return svg.querySelector(`#${id}`); }
+            function showElement(id) { const el = getElement(id); if (el) el.style.visibility = 'visible'; }
+            function hideElement(id) { const el = getElement(id); if (el) el.style.visibility = 'hidden'; }
+            function beginAnimation(id) { const anim = getElement(id); if (anim && typeof anim.beginElement === 'function') try { anim.beginElement(); } catch(e) { console.error(`Cannot begin ${id}`, e)} }
+
+            // --- Reset State (Unchanged) ---
+            function resetSignalState() {
+                [...dendriteDotIds, somaPulseDotId, axonDotId, ...terminalDotIds].forEach(hideElement);
+            }
+
+            // --- Animation Loop (Logic Unchanged, uses updated IDs) ---
+            function runLoopIteration() {
+                resetSignalState();
+
+                // 1. Dendrites
+                dendriteDotIds.forEach(showElement);
+                dendriteAnimIds.forEach(beginAnimation);
+                const longestDendriteAnim = getElement('anim-dendrite-3-compact'); // Use updated ID
+                if (!longestDendriteAnim) { console.error("Cannot find longest dendrite animation."); return; }
+
+                const dendriteEndListener = () => {
+                    dendriteDotIds.forEach(hideElement);
+                    // 2. Pulse
+                    showElement(somaPulseDotId);
+                    beginAnimation(somaPulseRadiusAnimId);
+                    beginAnimation(somaPulseOpacityAnimId);
+                    const pulseAnim = getElement(somaPulseRadiusAnimId); // Use updated ID
+                    if (!pulseAnim) { console.error("Pulse anim not found"); return; }
+
+                     const pulseEndListener = () => {
+                         hideElement(somaPulseDotId);
+                         // 3. Axon
+                         showElement(axonDotId);
+                         beginAnimation(axonAnimId);
+                         const axonAnim = getElement(axonAnimId); // Use updated ID
+                         if (!axonAnim) { console.error("Axon anim not found"); return; }
+
+                         const axonEndListener = () => {
+                             hideElement(axonDotId);
+                             // 4. Terminals
+                             terminalDotIds.forEach(showElement);
+                             terminalAnimIds.forEach(beginAnimation);
+                             const lastTerminalAnim = getElement(terminalAnimIds[0]); // Use updated ID
+                             if (!lastTerminalAnim) { console.error("Terminal anim not found"); return; }
+
+                             const terminalEndListener = () => {
+                                  setTimeout(() => { terminalDotIds.forEach(hideElement); }, 100);
+                                 // 5. RESTART LOOP
+                                 setTimeout(runLoopIteration, 1000);
+                                 lastTerminalAnim.removeEventListener('endEvent', terminalEndListener);
+                             };
+                             lastTerminalAnim.addEventListener('endEvent', terminalEndListener, { once: true });
+                             axonAnim.removeEventListener('endEvent', axonEndListener);
+                         };
+                         axonAnim.addEventListener('endEvent', axonEndListener, { once: true });
+                         pulseAnim.removeEventListener('endEvent', pulseEndListener);
+                     };
+                     pulseAnim.addEventListener('endEvent', pulseEndListener, { once: true });
+                };
+                longestDendriteAnim.addEventListener('endEvent', dendriteEndListener, { once: true });
+            }
+
+            // --- Start the loop (Unchanged) ---
+            setTimeout(runLoopIteration, 500);
+
+        })(); // Immediately invoke the function
+    </script>
+
+</div>
+<!-- End: Looping Neuron Animation (Compact) -->
+        <p>Think of a biological neuron like a tiny information processor. It receives signals from other neurons through its <strong>dendrites</strong>, processes these signals in its <strong>cell body</strong>, and if the combined signal is strong enough, it fires its own signal down its <strong>axon</strong> to potentially trigger other neurons via its <strong>axon terminals</strong>.</p>
+        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
+    </section>
+
+    <section id="section3">
+        <h2>The Artificial Neuron Model</h2>
+        <p>Now, we don't need to replicate <em>all</em> the biological complexity. Artificial Neural Networks (ANNs) use a simplified mathematical model inspired by this process. Let's meet the <strong>artificial neuron</strong> (sometimes called a 'unit' or 'perceptron').</p>
+<div class="continue-button" onclick="showNextSection(4)">Continue</div>
+    </section>
+
+    <section id="section4">
+        <!-- Start: Interactive Artificial Neuron Diagram (Click Version Refined) -->
+<div id="interactive-ann-diagram-click-v2">
+
+    <style>
+        /* Scoped styles for the ANN diagram (Click Version Refined) */
+        #interactive-ann-diagram-click-v2 {
+            font-family: Arial, sans-serif;
+            padding: 10px 5px;
+            background-color: #ffffff;
+            font-size: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #interactive-ann-diagram-click-v2 svg {
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            overflow: visible;
+            margin-bottom: 15px;
+            cursor: default;
+        }
+
+        /* Brilliant.org Inspired Styling */
+        #interactive-ann-diagram-click-v2 .ann-component {
+             transition: opacity 0.3s ease-in-out;
+             cursor: pointer;
+        }
+        /* Optional fade non-highlighted - uncomment if desired
+        #interactive-ann-diagram-click-v2 .ann-component:not(.highlight) {
+             opacity: 0.85;
+        }
+        */
+
+         /* Node Styles */
+        #interactive-ann-diagram-click-v2 .input-node { fill: #d1f7ff; stroke: #00bcd4; stroke-width: 1.5; } /* Light Cyan */
+        #interactive-ann-diagram-click-v2 .summation-node { fill: #fff5d4; stroke: #ffc107; stroke-width: 2; } /* Light Yellow/Amber */
+        #interactive-ann-diagram-click-v2 .activation-node { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; } /* Light Pink */
+        #interactive-ann-diagram-click-v2 .output-node { fill: #e3f2fd; stroke: #2196f3; stroke-width: 1.5; } /* Light Blue */
+        #interactive-ann-diagram-click-v2 .bias-input { fill: #f5f5f5; stroke: #9e9e9e; stroke-width: 1; } /* Light Grey for bias input '1' */
+
+         /* Line Styles */
+        #interactive-ann-diagram-click-v2 .connection-line { stroke: #90a4ae; stroke-width: 2; transition: stroke 0.2s ease, stroke-width 0.2s ease; } /* Blue Grey */
+        #interactive-ann-diagram-click-v2 .bias-line { stroke: #90a4ae; stroke-width: 2; stroke-dasharray: 4, 4; transition: stroke 0.2s ease, stroke-width 0.2s ease; }
+
+        /* Text Styles */
+        #interactive-ann-diagram-click-v2 .label-text { font-family: 'Arial', sans-serif; font-size: 15px; fill: #212121; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+        #interactive-ann-diagram-click-v2 .weight-text { font-family: 'Arial', sans-serif; font-size: 13px; fill: #546e7a; text-anchor: middle; pointer-events: none; font-style: italic; }
+        #interactive-ann-diagram-click-v2 .subscript { font-size: 0.7em; baseline-shift: sub; }
+        #interactive-ann-diagram-click-v2 .math-symbol { font-size: 22px; font-weight: normal; }
+        #interactive-ann-diagram-click-v2 .bias-text { font-style: italic; font-weight: bold; }
+
+        /* Arrowhead */
+        #interactive-ann-diagram-click-v2 .arrow-marker polygon { fill: #90a4ae; transition: fill 0.2s ease; }
+
+        /* Highlight Styles */
+        #interactive-ann-diagram-click-v2 .highlight { opacity: 1 !important; }
+        #interactive-ann-diagram-click-v2 .highlight .input-node,
+        #interactive-ann-diagram-click-v2 .highlight .bias-input,
+        #interactive-ann-diagram-click-v2 .highlight .summation-node,
+        #interactive-ann-diagram-click-v2 .highlight .activation-node,
+        #interactive-ann-diagram-click-v2 .highlight .output-node { stroke-width: 3; stroke: #0d47a1; } /* Dark Blue highlight stroke */
+
+        #interactive-ann-diagram-click-v2 .highlight .connection-line,
+        #interactive-ann-diagram-click-v2 .highlight .bias-line { stroke: #0d47a1; stroke-width: 3; }
+        #interactive-ann-diagram-click-v2 .highlight .arrow-marker polygon { fill: #0d47a1; }
+
+        #interactive-ann-diagram-click-v2 .highlight .weight-text,
+        #interactive-ann-diagram-click-v2 .highlight .bias-text { fill: #0d47a1; font-weight: bold; }
+        #interactive-ann-diagram-click-v2 .highlight .math-symbol { fill: #0d47a1; font-weight: bold; }
+
+        /* Description Area Styles */
+        #interactive-ann-diagram-click-v2 #description-ann-v2 {
+             padding: 15px 20px;
+             margin: 0 15px 15px 15px;
+             background-color: #f8f9fa;
+             border-radius: 5px;
+             min-height: 6em;
+             text-align: left;
+             color: #444;
+             line-height: 1.6;
+             font-size: 1em;
+             transition: background-color 0.3s ease;
+        }
+        #interactive-ann-diagram-click-v2 #description-ann-v2 strong { color: #333; font-weight: bold; }
+        #interactive-ann-diagram-click-v2 #description-ann-v2 code { background-color: #e9ecef; padding: 0.1em 0.4em; border-radius: 3px; font-family: monospace; }
+        #interactive-ann-diagram-click-v2 #description-ann-v2 em { font-style: italic; color: #555; }
+
+    </style>
+
+    <svg id="ann-svg-click-v2" viewBox="0 0 350 230">
+        <defs>
+            <!-- Arrowhead Marker: Tip aligns with line end (refX=10) -->
+            <marker id="arrowhead-ann-v2" class="arrow-marker"
+                    viewBox="0 0 10 10" refX="10" refY="5"
+                    markerUnits="strokeWidth" markerWidth="4" markerHeight="5"
+                    orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" />
+            </marker>
+        </defs>
+
+        <!-- Constants -->
+        <script>
+            const NODE_RADIUS = 12; // Increased node radius
+            const SUM_RADIUS = 25;
+            const ACT_X = 195;
+            const ACT_WIDTH = 55;
+            const INPUT_CX = 35 + NODE_RADIUS; // x-coord for start of input lines
+            const SUM_CX_TARGET = 125 - SUM_RADIUS; // x-coord for end of input lines
+            const SUM_CX_SOURCE = 125 + SUM_RADIUS; // x-coord for start of sum->act line
+            const ACT_CX_TARGET = ACT_X; // x-coord for end of sum->act line
+            const ACT_CX_SOURCE = ACT_X + ACT_WIDTH; // x-coord for start of act->out line
+            const OUT_CX_TARGET = 320 - NODE_RADIUS; // x-coord for end of act->out line
+        </script>
+
+        <!-- Connections (drawn first) -->
+        <g id="connections-layer-v2">
+             <!-- Input connections -->
+            <line class="connection-line" id="line-input-1-v2" x1="47" y1="50" x2="100" y2="98" marker-end="url(#arrowhead-ann-v2)"/> <!-- Adjusted x1, x2, y2 -->
+            <line class="connection-line" id="line-input-2-v2" x1="47" y1="100" x2="100" y2="100" marker-end="url(#arrowhead-ann-v2)"/> <!-- Adjusted x1, x2 -->
+            <line class="connection-line" id="line-input-n-v2" x1="47" y1="150" x2="100" y2="102" marker-end="url(#arrowhead-ann-v2)"/> <!-- Adjusted x1, x2, y2 -->
+            <!-- Bias connection -->
+            <line class="bias-line" id="line-bias-v2" x1="47" y1="200" x2="100" y2="104" marker-end="url(#arrowhead-ann-v2)"/> <!-- Adjusted x1, x2, y2 -->
+            <!-- Summation to Activation -->
+            <line class="connection-line" id="line-sum-act-v2" x1="150" y1="100" x2="195" y2="100" marker-end="url(#arrowhead-ann-v2)"/> <!-- Adjusted x1, x2 -->
+             <!-- Activation to Output -->
+            <line class="connection-line" id="line-act-out-v2" x1="250" y1="100" x2="308" y2="100" marker-end="url(#arrowhead-ann-v2)"/> <!-- Adjusted x1, x2 -->
+        </g>
+
+
+        <!-- Components (Click Targets) -->
+        <!-- 1. Inputs -->
+        <g id="inputs-group-ann-v2" class="ann-component">
+             <title>Inputs (Click to learn more)</title>
+            <circle class="input-node" cx="35" cy="50" r="12"/> <!-- Increased radius -->
+            <text class="label-text" x="35" y="50">x<tspan class="subscript">1</tspan></text>
+
+            <circle class="input-node" cx="35" cy="100" r="12"/> <!-- Increased radius -->
+            <text class="label-text" x="35" y="100">x<tspan class="subscript">2</tspan></text>
+
+            <text class="label-text" x="35" y="125" font-size="18px">.<tspan dy="3">.</tspan><tspan dy="3">.</tspan></text>
+
+            <circle class="input-node" cx="35" cy="150" r="12"/> <!-- Increased radius -->
+            <text class="label-text" x="35" y="150">x<tspan class="subscript">n</tspan></text>
+        </g>
+
+        <!-- 2. Weights (Associated with lines, clickable area around text) -->
+        <g id="weights-group-ann-v2" class="ann-component">
+             <title>Weights (Click to learn more)</title>
+            <rect x="55" y="55" width="30" height="20" fill="transparent"/>
+            <rect x="55" y="95" width="30" height="20" fill="transparent"/> <!-- Adjusted y -->
+            <rect x="55" y="130" width="30" height="20" fill="transparent"/>
+             <!-- Weight Labels -->
+            <text class="weight-text" id="text-weight-1-v2" x="70" y="65">w<tspan class="subscript">1</tspan></text>
+            <text class="weight-text" id="text-weight-2-v2" x="70" y="105">w<tspan class="subscript">2</tspan></text>
+            <text class="weight-text" id="text-weight-n-v2" x="70" y="140">w<tspan class="subscript">n</tspan></text>
+        </g>
+
+         <!-- 3. Bias -->
+        <g id="bias-group-ann-v2" class="ann-component">
+             <title>Bias (Click to learn more)</title>
+             <rect x="15" y="185" width="40" height="30" fill="transparent"/>
+             <rect x="50" y="150" width="40" height="30" fill="transparent"/> <!-- Adjusted y -->
+
+            <circle class="input-node bias-input" cx="35" cy="200" r="12"/> <!-- Increased radius -->
+            <text class="label-text bias-input-label" x="35" y="200">1</text>
+            <text class="weight-text bias-text" id="text-bias-v2" x="70" y="165">b</text>
+        </g>
+
+        <!-- 4. Summation -->
+        <g id="summation-group-ann-v2" class="ann-component">
+             <title>Summation Function (Click to learn more)</title>
+            <circle class="summation-node" cx="125" cy="100" r="25"/>
+            <text class="label-text math-symbol summation-symbol" x="125" y="100">Σ</text>
+        </g>
+
+        <!-- 5. Activation Function -->
+        <g id="activation-group-ann-v2" class="ann-component">
+             <title>Activation Function (Click to learn more)</title>
+            <rect class="activation-node" x="195" y="75" width="55" height="50" rx="8"/>
+            <text class="label-text math-symbol activation-symbol" x="222.5" y="100">φ</text>
+        </g>
+
+        <!-- 6. Output -->
+        <g id="output-group-ann-v2" class="ann-component">
+             <title>Output (Click to learn more)</title>
+            <circle class="output-node" cx="320" cy="100" r="12"/> <!-- Increased radius -->
+            <text class="label-text" x="320" y="100">a</text>
+        </g>
+
+    </svg>
+
+    <!-- Description Area -->
+    <div id="description-ann-v2">Click on a component of the diagram above to learn more about it.</div>
+
+    <script>
+        (function() {
+            // Unique ID for this instance
+            const containerId = 'interactive-ann-diagram-click-v2';
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const svg = container.querySelector('#ann-svg-click-v2');
+            const descriptionEl = container.querySelector('#description-ann-v2');
+            const allComponents = container.querySelectorAll('.ann-component');
+
+            // Select lines by specific ID
+            const lineInput1 = container.querySelector('#line-input-1-v2');
+            const lineInput2 = container.querySelector('#line-input-2-v2');
+            const lineInputN = container.querySelector('#line-input-n-v2');
+            const lineBias = container.querySelector('#line-bias-v2');
+
+            // Map component group IDs to description text
+            const componentInfo = {
+                'inputs-group-ann-v2': '<strong>Inputs (<code>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub></code>)</strong><br>These are the features or data points fed into the neuron. They could be raw data (like pixel values) or outputs from neurons in a previous layer.',
+                'weights-group-ann-v2': '<strong>Weights (<code>w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub></code>)</strong><br>Each input <code>x<sub>i</sub></code> has an associated weight <code>w<sub>i</sub></code>. This value determines the <em>strength</em> or <em>importance</em> of that input signal. Weights are typically learned during training.',
+                'bias-group-ann-v2': '<strong>Bias (<code>b</code>)</strong><br>An extra learnable parameter, independent of the inputs. It acts like an offset, making it easier for the neuron to activate or not, regardless of input values. Think of it like shifting the activation threshold.',
+                'summation-group-ann-v2': '<strong>Summation Function (Σ)</strong><br>Calculates the <em>weighted sum</em> (often denoted <code>z</code>). It multiplies each input <code>x<sub>i</sub></code> by its corresponding weight <code>w<sub>i</sub></code>, and adds up all these products, plus the bias <code>b</code>.<br><code>z = (Σ w<sub>i</sub>x<sub>i</sub>) + b</code>',
+                'activation-group-ann-v2': '<strong>Activation Function (<code>φ</code>)</strong><br>Takes the weighted sum (<code>z</code>) as input and applies a (usually non-linear) transformation to produce the neuron\'s final output <code>a</code>. This determines the neuron\'s firing pattern.<br><code>a = φ(z)</code>',
+                'output-group-ann-v2': '<strong>Output (<code>a</code>)</strong><br>The final value computed by the neuron (its activation), which can then be used as the network\'s prediction or passed as input to neurons in the next layer.'
+            };
+
+            let currentlyHighlighted = null;
+            let highlightedLines = []; // Keep track of lines linked to the highlighted component
+
+            // Function to clear all highlights
+            function clearHighlights() {
+                 if (currentlyHighlighted) {
+                     currentlyHighlighted.classList.remove('highlight');
+                     currentlyHighlighted = null;
+                 }
+                 highlightedLines.forEach(line => line && line.classList.remove('highlight'));
+                 highlightedLines = [];
+            }
+
+            // Function to update highlight and description
+            function setActiveComponent(componentGroup) {
+                const id = componentGroup.id;
+
+                // Clear previous highlights first
+                clearHighlights();
+
+                // Add highlight to the clicked component group
+                componentGroup.classList.add('highlight');
+                currentlyHighlighted = componentGroup;
+
+                // Highlight associated lines specifically
+                 if (id === 'weights-group-ann-v2') {
+                     if (lineInput1) highlightedLines.push(lineInput1);
+                     if (lineInput2) highlightedLines.push(lineInput2);
+                     if (lineInputN) highlightedLines.push(lineInputN);
+                 } else if (id === 'bias-group-ann-v2') {
+                     if (lineBias) highlightedLines.push(lineBias);
+                 } else if (id === 'inputs-group-ann-v2') {
+                     // Highlight lines originating FROM inputs
+                      if (lineInput1) highlightedLines.push(lineInput1);
+                      if (lineInput2) highlightedLines.push(lineInput2);
+                      if (lineInputN) highlightedLines.push(lineInputN);
+                 } else if (id === 'summation-group-ann-v2') {
+                      // Highlight lines entering AND leaving summation
+                      if (lineInput1) highlightedLines.push(lineInput1);
+                      if (lineInput2) highlightedLines.push(lineInput2);
+                      if (lineInputN) highlightedLines.push(lineInputN);
+                      if (lineBias) highlightedLines.push(lineBias);
+                      if (container.querySelector('#line-sum-act-v2')) highlightedLines.push(container.querySelector('#line-sum-act-v2'));
+                 } else if (id === 'activation-group-ann-v2') {
+                      // Highlight lines entering AND leaving activation
+                       if (container.querySelector('#line-sum-act-v2')) highlightedLines.push(container.querySelector('#line-sum-act-v2'));
+                       if (container.querySelector('#line-act-out-v2')) highlightedLines.push(container.querySelector('#line-act-out-v2'));
+                 } else if (id === 'output-group-ann-v2') {
+                      // Highlight line entering output
+                       if (container.querySelector('#line-act-out-v2')) highlightedLines.push(container.querySelector('#line-act-out-v2'));
+                 }
+
+                // Apply highlight class to collected lines
+                highlightedLines.forEach(line => line && line.classList.add('highlight'));
+
+
+                // Update Description Text
+                if (componentInfo[id]) {
+                    descriptionEl.innerHTML = componentInfo[id];
+                } else {
+                    descriptionEl.innerHTML = 'Click on a component of the diagram above to learn more about it.'; // Default text
+                }
+            }
+
+            // Add click listeners to all components
+            allComponents.forEach(component => {
+                component.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Prevent click bubbling
+                    setActiveComponent(component);
+                });
+            });
+
+            // Click on SVG background to clear selection
+            svg.addEventListener('click', (event) => {
+                 if (event.target === svg || event.target.closest('#connections-layer-v2')) { // Click on svg bg or lines layer
+                    clearHighlights();
+                    descriptionEl.innerHTML = 'Click on a component of the diagram above to learn more about it.';
+                 }
+            });
+
+             // Initialize
+            descriptionEl.innerHTML = 'Click on a component of the diagram above to learn more about it.';
+
+        })();
+    </script>
+
+</div>
+<!-- End: Interactive Artificial Neuron Diagram (Click Version Refined) -->
+        <p>It looks a bit abstract, but it follows a similar input -> process -> output flow. Here's how it works mathematically, in two main steps:</p>
+        <div class="continue-button" onclick="showNextSection(5)">Continue</div>
+    </section>
+
+    <section id="section5">
+        <h3>Step 1: The Weighted Sum</h2>
+        <p>First, the neuron takes its inputs and calculates a <strong>weighted sum</strong>.</p>
+        <div class="math-explainer">
+            <h3>Calculating the Weighted Sum (z)</h3>
+            <div class="step">
+                <p><strong>Step 1:</strong> Each input <code>xᵢ</code> has an associated <strong>weight</strong> <code>wᵢ</code>. Think of the weight as controlling the <em>influence</em> or <em>importance</em> of that specific input. A large weight means the input has a big effect; a small weight means it has less effect.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2:</strong> We multiply each input <code>xᵢ</code> by its corresponding weight <code>wᵢ</code>.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3:</strong> We sum up all these weighted inputs: <code>(w₁ * x₁) + (w₂ * x₂) + ... + (wₙ * xₙ)</code>.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 4:</strong> Finally, we add a special term called the <strong>bias</strong> <code>b</code>. The bias acts like an offset or a threshold; it makes it easier or harder for the neuron to activate, independent of the inputs. It's like asking, 'How predisposed is this neuron to fire anyway?'</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 5:</strong> The result of this entire calculation is often denoted by <code>z</code>. Here's the full formula using summation notation:</p>
+            </div>
+            <div class="formula">
+                \[ z = \left( \sum_{i=1}^{m} w_i x_i \right) + b \]
+            </div>
+        </div>
+       <div class="continue-button" onclick="showNextSection(6)">Continue</div>
+    </section>
+
+    <section id="section6">
+        <p>So, <code>z</code> represents the aggregated signal strength before the neuron 'decides' what to output.</p>
+<div class="continue-button" onclick="showNextSection(7)">Continue</div>
+    </section>
+
+    <section id="section7">
+ <div class="vocab-section">
+            <h3>Build Your Vocab</h3>
+            <h4 class="vocab-term">Weights (wᵢ)</h4>
+            <p>Parameters associated with each input to a neuron, determining the input's influence on the neuron's output. Learned during training.</p>
+            <h4 class="vocab-term">Bias (b)</h4>
+            <p>An additional parameter in a neuron that is added to the weighted sum of inputs. It adjusts the neuron's activation threshold, allowing the activation function to be shifted. Learned during training.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(8)">Continue</div>
+    </section>
+
+    <section id="section8">
+        <h3>Step 2: The Activation Function</h3>
+        <p>The second step is where the neuron 'decides' its output based on the aggregated signal <code>z</code>. This is done using an <strong>activation function</strong>, often denoted by \( \varphi \).</p>
+        <div class="math-explainer">
+            <h3>Calculating the Output Activation (a)</h3>
+            <div class="step">
+                <p><strong>Step 1:</strong> The weighted sum <code>z</code> calculated in Step 1 is fed into the activation function \( \varphi \).</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 2:</strong> The function \( \varphi \) transforms <code>z</code> into the neuron's final output, called the <strong>activation</strong> <code>a</code>.</p>
+            </div>
+            <div class="step">
+                <p><strong>Step 3:</strong> So, the output <code>a</code> is simply:</p>
+            </div>
+            <div class="formula">
+                \[ a = \varphi(z) \]
+            </div>
+        </div>
+<div class="continue-button" onclick="showNextSection(9)">Continue</div>
+    </section>
+
+    <section id="section9">
+        <p>Think of \( \varphi \) as the neuron's 'firing mechanism'. Different activation functions behave differently – some are simple on/off switches (like the early TLU), others produce graded outputs. We'll explore specific functions in a later lesson.</p>
+<div class="continue-button" onclick="showNextSection(10)">Continue</div>
+    </section>
+
+    <section id="section10">
+        <div class="vocab-section">
+            <h3>Build Your Vocab</h3>
+            <h4 class="vocab-term">Activation Function (\( \varphi \))</h4>
+            <p>A function applied to the weighted sum (<code>z</code>) in a neuron to compute its output activation (<code>a</code>). It introduces non-linearities, which are crucial for learning complex patterns.</p>
+            <h4 class="vocab-term">Activation (a)</h4>
+            <p>The output value produced by a neuron after applying the activation function to the weighted sum of its inputs plus bias.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(11)">Continue</div>
+    </section>
+
+    <section id="section11">
+        <h2>Putting It All Together</h2>
+        <p>Combining both steps, the complete calculation for a single artificial neuron is:</p>
+        <div class="math-explainer">
+            <h3>Neuron Output Equation</h3>
+            <div class="formula">
+                \[ a = \varphi\left( \left( \sum_{i=1}^{m} w_i x_i \right) + b \right) \]
+            </div>
+        </div>
+        <p>This simple formula is the heart of every artificial neuron!</p>
+<div class="continue-button" onclick="showNextSection(12)">Continue</div>
+    </section>
+
+    <section id="section12">
+        <div class="why-it-matters">
+            <h3>Why It Matters</h3>
+            <p>This artificial neuron model, despite its simplicity compared to biology, is the fundamental building block of all the powerful neural networks we see today. Understanding how it computes its output is essential before we connect them into layers.</p>
+        </div>
+<div class="continue-button" onclick="showNextSection(13)">Continue</div>
+    </section>
+
+    <section id="section13">
+<h2>Let's see it in action</h2>
+        <p>Play with the sliders! How does increasing a weight <code>w</code> affect the output <code>a</code> when the corresponding input <code>x</code> is positive?
+</p>
+        <!-- Start: Interactive Neuron Simulation -->
+<div id="neuron-simulation">
+
+    <style>
+        /* Scoped styles for the Neuron Simulation */
+        #neuron-simulation {
+            font-family: Arial, sans-serif;
+            padding: 15px;
+            background-color: #ffffff;
+            font-size: 100%; /* Adjust as needed relative to parent */
+            border-radius: 8px;
+            /* border: 1px solid #eee; */ /* Optional: uncomment to see bounds */
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-areas:
+                "diagram controls"
+                "output output"
+                "guidance guidance";
+            grid-template-columns: 1fr 1.5fr; /* Adjust ratio as needed */
+            gap: 20px;
+            max-width: 800px; /* Match provided body style */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Diagram Area */
+        #neuron-simulation .diagram-area {
+            grid-area: diagram;
+            text-align: center;
+            padding-top: 20px; /* Align visually with controls */
+        }
+        #neuron-simulation .diagram-area svg {
+            max-width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+         /* Simplified diagram styles */
+        #neuron-simulation .sim-node { stroke-width: 1.5; }
+        #neuron-simulation .sim-input { fill: #d1f7ff; stroke: #00bcd4; }
+        #neuron-simulation .sim-sum { fill: #fff5d4; stroke: #ffc107; }
+        #neuron-simulation .sim-act { fill: #fce4ec; stroke: #e91e63; }
+        #neuron-simulation .sim-output { fill: #e3f2fd; stroke: #2196f3; }
+        #neuron-simulation .sim-line { stroke: #90a4ae; stroke-width: 2; marker-end: url(#arrowhead-sim); }
+        #neuron-simulation .sim-bias-line { stroke: #90a4ae; stroke-width: 2; stroke-dasharray: 4, 4; marker-end: url(#arrowhead-sim); }
+        #neuron-simulation .sim-label { font-size: 12px; fill: #212121; text-anchor: middle; dominant-baseline: central; }
+        #neuron-simulation .sim-weight { font-size: 11px; fill: #546e7a; font-style: italic; }
+        #neuron-simulation .sim-sub { font-size: 0.7em; baseline-shift: sub; }
+        #neuron-simulation .sim-symbol { font-size: 18px; }
+
+        /* Controls Area */
+        #neuron-simulation .controls-area {
+            grid-area: controls;
+            display: grid;
+            grid-template-columns: auto 1fr auto; /* Label | Input/Slider | Value */
+            gap: 10px 15px; /* Row gap | Column gap */
+            align-items: center;
+        }
+        #neuron-simulation .controls-area label {
+            font-weight: bold;
+            text-align: right;
+            font-size: 1.1em; /* Make labels slightly larger */
+        }
+        #neuron-simulation .controls-area input[type="number"],
+        #neuron-simulation .controls-area input[type="range"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        #neuron-simulation .controls-area input[type="range"] {
+             cursor: pointer;
+             padding: 0; /* Remove padding for range */
+        }
+        #neuron-simulation .controls-area .value-display {
+            font-weight: bold;
+            font-family: monospace;
+            min-width: 4em; /* Prevent layout shifts */
+            text-align: right;
+            background-color: #e9ecef;
+            padding: 3px 6px;
+            border-radius: 3px;
+        }
+        #neuron-simulation .controls-area .input-value-display { /* Style for input value display */
+            font-weight: normal;
+            background-color: transparent;
+            padding: 0;
+            min-width: auto;
+        }
+
+        /* Output Area */
+        #neuron-simulation .output-area {
+            grid-area: output;
+            background-color: #f0f8ff; /* Like vocab-section */
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+        }
+        #neuron-simulation .output-area code {
+            font-weight: bold;
+            color: #1e90ff; /* Like vocab-term */
+        }
+         #neuron-simulation .output-area .formula {
+             color: #555;
+             font-style: italic;
+             font-size: 0.9em;
+             margin-bottom: 5px;
+         }
+
+
+        /* Guidance Area */
+        #neuron-simulation .guidance-area {
+            grid-area: guidance;
+            background-color: #e6e6ff; /* Like stop-and-think */
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: #444; /* Style P */
+            line-height: 1.6; /* Style P */
+        }
+         #neuron-simulation .guidance-area h3 {
+            color: #4b0082; /* Style stop-and-think h3 */
+            font-size: 0.9em; /* Adjust size */
+            margin-top: 0;
+            margin-bottom: 10px;
+         }
+        #neuron-simulation .guidance-area code {
+            background-color: #dadaf7;
+            padding: 0.1em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+
+        /* Responsive adjustments */
+         @media (max-width: 650px) {
+            #neuron-simulation {
+                grid-template-areas:
+                    "diagram"
+                    "controls"
+                    "output"
+                    "guidance";
+                grid-template-columns: 1fr; /* Single column */
+            }
+             #neuron-simulation .diagram-area svg { max-width: 250px; } /* Limit diagram size on small screens */
+              #neuron-simulation .controls-area { grid-template-columns: auto 1fr auto; } /* Keep 3 columns for controls */
+        }
+
+
+    </style>
+
+    <!-- 1. Diagram Area -->
+    <div class="diagram-area">
+        <svg id="sim-svg" viewBox="0 0 200 180">
+            <defs>
+                <marker id="arrowhead-sim" viewBox="0 0 10 10" refX="10" refY="5"
+                        markerUnits="strokeWidth" markerWidth="4" markerHeight="5"
+                        orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#90a4ae"/>
+                </marker>
+            </defs>
+            <!-- Lines -->
+            <line class="sim-line" x1="25" y1="30" x2="70" y2="65" />
+            <line class="sim-line" x1="25" y1="70" x2="70" y2="75" />
+            <line class="sim-bias-line" x1="25" y1="130" x2="70" y2="85" />
+            <line class="sim-line" x1="110" y1="75" x2="145" y2="75" />
+            <line class="sim-line" x1="185" y1="75" x2="200" y2="75" />
+
+            <!-- Nodes -->
+            <circle class="sim-node sim-input" cx="15" cy="30" r="10"/> <text class="sim-label" x="15" y="30">x<tspan class="sim-sub">1</tspan></text>
+            <circle class="sim-node sim-input" cx="15" cy="70" r="10"/> <text class="sim-label" x="15" y="70">x<tspan class="sim-sub">2</tspan></text>
+            <circle class="sim-node sim-input" cx="15" cy="130" r="8"/> <text class="sim-label" x="15" y="130">1</text> <!-- Bias Input -->
+
+            <circle class="sim-node sim-sum" cx="90" cy="75" r="20"/> <text class="sim-label sim-symbol" x="90" y="75">Σ</text>
+            <rect class="sim-node sim-act" x="145" y="55" width="40" height="40" rx="5"/> <text class="sim-label sim-symbol" x="165" y="75">φ</text>
+            <!-- Output Circle drawn in JS potentially -->
+            <text class="sim-label" x="205" y="75">a</text>
+
+             <!-- Weights/Bias Text -->
+            <text class="sim-weight" x="45" y="40">w<tspan class="sim-sub">1</tspan></text>
+            <text class="sim-weight" x="45" y="75">w<tspan class="sim-sub">2</tspan></text>
+            <text class="sim-weight" x="45" y="115">b</text>
+        </svg>
+    </div>
+
+    <!-- 2. Controls Area -->
+    <div class="controls-area">
+        <!-- Input x1 -->
+        <label for="input-x1">x<sub>1</sub>:</label>
+        <input type="number" id="input-x1" value="1.0" step="0.1">
+        <span class="value-display input-value-display">Input</span>
+
+        <!-- Input x2 -->
+        <label for="input-x2">x<sub>2</sub>:</label>
+        <input type="number" id="input-x2" value="-0.5" step="0.1">
+         <span class="value-display input-value-display">Input</span>
+
+        <!-- Weight w1 -->
+        <label for="slider-w1">w<sub>1</sub>:</label>
+        <input type="range" id="slider-w1" min="-2" max="2" value="0.8" step="0.1">
+        <span id="value-w1" class="value-display">0.8</span>
+
+        <!-- Weight w2 -->
+        <label for="slider-w2">w<sub>2</sub>:</label>
+        <input type="range" id="slider-w2" min="-2" max="2" value="1.2" step="0.1">
+        <span id="value-w2" class="value-display">1.2</span>
+
+        <!-- Bias b -->
+        <label for="slider-b">b:</label>
+        <input type="range" id="slider-b" min="-2" max="2" value="-0.5" step="0.1">
+        <span id="value-b" class="value-display">-0.5</span>
+    </div>
+
+    <!-- 3. Output Display Area -->
+    <div class="output-area">
+        <div class="formula">z = (w<sub>1</sub> * x<sub>1</sub>) + (w<sub>2</sub> * x<sub>2</sub>) + b</div>
+        <div id="output-z">Weighted Sum (z): calculating...</div>
+        <hr style="border: none; border-top: 1px solid #ccc; margin: 10px 0;">
+        <div class="formula">a = φ(z) = 1 / (1 + exp(-z))   <i>(Sigmoid)</i></div>
+        <div id="output-a">Activation (a): calculating...</div>
+    </div>
+
+  
+
+    
+
+    <script>
+        (function() {
+            const container = document.getElementById('neuron-simulation');
+            if (!container) return;
+
+            // Input Elements
+            const inputX1 = container.querySelector('#input-x1');
+            const inputX2 = container.querySelector('#input-x2');
+            const sliderW1 = container.querySelector('#slider-w1');
+            const sliderW2 = container.querySelector('#slider-w2');
+            const sliderB = container.querySelector('#slider-b');
+
+            // Value Display Elements
+            const valueW1 = container.querySelector('#value-w1');
+            const valueW2 = container.querySelector('#value-w2');
+            const valueB = container.querySelector('#value-b');
+
+            // Output Display Elements
+            const outputZ = container.querySelector('#output-z');
+            const outputA = container.querySelector('#output-a');
+
+            // Sigmoid Function
+            function sigmoid(z) {
+                return 1 / (1 + Math.exp(-z));
+            }
+
+            // Update function
+            function updateNeuron() {
+                // Get current values, parsing as floats, default to 0 if parsing fails
+                const x1 = parseFloat(inputX1.value) || 0;
+                const x2 = parseFloat(inputX2.value) || 0;
+                const w1 = parseFloat(sliderW1.value) || 0;
+                const w2 = parseFloat(sliderW2.value) || 0;
+                const b = parseFloat(sliderB.value) || 0;
+
+                // Calculate weighted sum (z)
+                const z = (w1 * x1) + (w2 * x2) + b;
+
+                // Calculate activation (a)
+                const a = sigmoid(z);
+
+                // Update display - showing breakdown for z
+                outputZ.innerHTML = `Weighted Sum (z): <br>
+                    <code>(${w1.toFixed(2)} * ${x1.toFixed(2)}) + (${w2.toFixed(2)} * ${x2.toFixed(2)}) + (${b.toFixed(2)}) = <strong>${z.toFixed(4)}</strong></code>`;
+
+                 outputA.innerHTML = `Activation (a): <br>
+                    <code>φ(${z.toFixed(4)}) = <strong>${a.toFixed(4)}</strong></code>`;
+            }
+
+            // Event Listeners for all inputs/sliders
+            const controls = [inputX1, inputX2, sliderW1, sliderW2, sliderB];
+            controls.forEach(control => {
+                control.addEventListener('input', () => {
+                    // Update slider value displays specifically
+                    if (control.id === 'slider-w1') valueW1.textContent = control.value;
+                    if (control.id === 'slider-w2') valueW2.textContent = control.value;
+                    if (control.id === 'slider-b') valueB.textContent = control.value;
+
+                    // Recalculate and update outputs
+                    updateNeuron();
+                });
+            });
+
+            // Initial setup
+            // Set initial slider value displays
+             valueW1.textContent = sliderW1.value;
+             valueW2.textContent = sliderW2.value;
+             valueB.textContent = sliderB.value;
+            // Run initial calculation
+            updateNeuron();
+
+        })();
+    </script>
+
+</div>
+<!-- End: Interactive Neuron Simulation -->
+  <!-- 4. Guidance Text Area -->
+<div class="stop-and-think">
+            <h3>Stop and Think</h3>
+            <ul>
+            <li>How does increasing a weight <code>w</code> affect the output <code>a</code> when the corresponding input <code>x</code> is positive?</li>
+            <li>What about when <code>x</code> is negative?</li>
+            <li>What does changing the bias <code>b</code> do to the output?</li>
+        </ul>
+         (Note: Sigmoid is just one possible activation function φ.)
+        </div>
+        <div class="continue-button" onclick="showNextSection(14)">Continue</div>
+    </section>
+
+    <section id="section14">
+        <h2>Learning vs. Fixed Parts</h2>
+        <p>It's important to distinguish what the network <em>learns</em> from what we <em>choose</em>.</p>
+        <ul>
+            <li><strong>Learned Parameters:</strong> The <strong>weights (wᵢ)</strong> and the <strong>bias (b)</strong> are the parameters that the network adjusts during the training process to solve a specific task.</li>
+            <li><strong>Chosen Hyperparameter:</strong> The <strong>activation function (\( \varphi \))</strong> is typically chosen by the network designer beforehand (though there are advanced techniques where this can also be learned). Different choices of \( \varphi \) are suitable for different tasks or network layers.</li>
+        </ul>
+<div class="continue-button" onclick="showNextSection(15)">Continue</div>
+    </section>
+
+    <section id="section15">
+        <div class="faq-section">
+            <h3>Frequently Asked Questions</h3>
+            <h4>Why do we need the bias term? Can't we just adjust the weights?</h4>
+            <p>Great question! Think of the weighted sum <code>Σ(wᵢxᵢ)</code> as defining a line or plane (in higher dimensions). The bias <code>b</code> allows us to <em>shift</em> this line/plane. Without the bias, the decision boundary created by the neuron would always have to pass through the origin (where all inputs are zero). The bias gives the neuron more flexibility to place its decision boundary wherever it's needed to best separate the data.</p>
+        </div>
+        <div class="continue-button" onclick="showNextSection(16)">Continue</div>
+    </section>
+
+    <section id="section16">
+        <h2>Lesson Recap</h2>
+        <p>Awesome! We've unwrapped the artificial neuron:</p>
+        <ul>
+            <li><strong>Inspiration:</strong> It's loosely based on biological neurons (input -> process -> output).</li>
+            <li><strong>Components:</strong> It has inputs (<code>xᵢ</code>), weights (<code>wᵢ</code>), a bias (<code>b</code>), a summation step (<code>z</code>), an activation function (\( \varphi \)), and an output (<code>a</code>).</li>
+            <li><strong>Calculation:</strong> It computes \(a = \varphi\left( \sum w_i x_i + b \right)\).</li>
+            <li><strong>Learning:</strong> Weights and bias are learned; the activation function is usually chosen.</li>
+        </ul>
+        <div class="test-your-knowledge">
+            <h3>Test Your Knowledge</h3>
+            <h4>What is the main purpose of the weights (<code>wᵢ</code>) in an artificial neuron?</h4>
+            <div class="option" onclick="selectOption(1)">To set the neuron's baseline activation level.</div>
+            <div class="option" onclick="selectOption(2)">To control the influence or importance of each corresponding input <code>xᵢ</code>.</div>
+            <div class="option" onclick="selectOption(3)">To apply a non-linear transformation to the summed signal.</div>
+            <div class="option" onclick="selectOption(4)">To ensure the output is always positive.</div>
+            
+            <div id="feedback-1" class="option-feedback incorrect">
+                <p>That's more the role of the bias <code>b</code>.</p>
+            </div>
+            <div id="feedback-2" class="option-feedback correct">
+                <p>Correct! Weights determine how much each input contributes to the neuron's total activation signal <code>z</code>.</p>
+            </div>
+            <div id="feedback-3" class="option-feedback incorrect">
+                <p>That's the job of the activation function <code>φ</code>.</p>
+            </div>
+            <div id="feedback-4" class="option-feedback incorrect">
+                <p>The range of the output depends entirely on the chosen activation function <code>φ</code>.</p>
+            </div>
+        </div>
+        <p>We now understand the basic building block. In the next lesson, we'll see how to connect these neurons together in layers to create powerful Neural Networks!</p>
+    </section>
+
+    <script>
+        // Show the first section initially
+        document.getElementById("section1").style.display = "block";
+        document.getElementById("section1").style.opacity = "1";
+
+        function showNextSection(nextSectionId) {
+            const currentButton = event.target;
+            const nextSection = document.getElementById("section" + nextSectionId);
+            
+            currentButton.style.display = "none";
+            
+            nextSection.style.display = "block";
+            setTimeout(() => {
+                nextSection.style.opacity = "1";
+            }, 10);
+
+            setTimeout(() => {
+                nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 500);
+        }
+
+        function revealAnswer(id) {
+            const revealText = document.getElementById(id);
+            const revealButton = event.target;
+            
+            revealText.style.display = "block";
+            revealButton.style.display = "none";
+        }
+
+        function selectOption(optionNumber) {
+            // Clear previous selections
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Hide all feedback
+            const feedbacks = document.querySelectorAll('.option-feedback');
+            feedbacks.forEach(feedback => {
+                feedback.style.display = 'none';
+            });
+            
+            // Select the clicked option
+            event.target.classList.add('selected');
+            
+            // Show the feedback for the selected option
+            document.getElementById('feedback-' + optionNumber).style.display = 'block';
+        }
+
+        function updateSliderValue(sliderId) {
+            const slider = document.getElementById(sliderId);
+            const valueDisplay = document.getElementById(sliderId + '-value');
+            valueDisplay.textContent = slider.value;
+        }
+
+        function sigmoid(z) {
+            return 1 / (1 + Math.exp(-z));
+        }
+
+        function updateNeuron() {
+            const x1 = parseFloat(document.getElementById('input1').value);
+            const x2 = parseFloat(document.getElementById('input2').value);
+            const w1 = parseFloat(document.getElementById('weight1').value);
+            const w2 = parseFloat(document.getElementById('weight2').value);
+            const b = parseFloat(document.getElementById('bias').value);
+            
+            const z = w1 * x1 + w2 * x2 + b;
+            const a = sigmoid(z);
+            
+            document.getElementById('weighted-sum').textContent = z.toFixed(2);
+            document.getElementById('output').textContent = a.toFixed(2);
+        }
+
+        // Initialize the interactive neuron
+        updateNeuron();
+    </script>
+</body>
+</html>
+    
