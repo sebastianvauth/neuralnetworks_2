@@ -1,16 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Deep Learning? The Power of Data</title>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Neuron - Biological Inspiration and Artificial Model</title>
+    <title>Das Neuron – Biologische Inspiration & Künstliches Modell</title>
     <style>
+        /* CSS remains the same */
         body {
             font-family: Arial, sans-serif;
             max-width: 800px;
@@ -241,19 +236,23 @@
             color: #007bff;
             font-size: 1.2em;
         }
+         /* Style for inline MathJax */
+        mjx-container {
+            display: inline !important; /* Ensure MathJax behaves inline */
+        }
     </style>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <section id="section1">
-<div class="image-placeholder">
+        <div class="image-placeholder">
             <img src="images/1.png?height=300&width=600" alt="...">
         </div>
-        <h1>The Neuron: Biological Inspiration & Artificial Model</h1>
+        <h1>Das Neuron: Biologische Inspiration & Künstliches Modell</h1>
         
-        <p>In the last lesson, we saw the incredible impact of neural networks. But what <em>are</em> they, really? At their core, they're inspired by the biological networks in our brains, made up of cells called <strong>neurons</strong>.</p>
-<div class="continue-button" onclick="showNextSection(2)">Continue</div>
+        <p>In der letzten Lektion haben wir die unglaublichen Möglichkeiten neuronaler Netze gesehen. Aber was <em>sind</em> sie eigentlich? Im Kern sind sie von den biologischen Netzwerken in unseren Gehirnen inspiriert, die aus Zellen namens <strong>Neuronen</strong> bestehen.</p>
+        <div class="continue-button" onclick="showNextSection(2)">Weiter</div>
     </section>
 
     <section id="section2">
@@ -336,11 +335,11 @@
             <path class="neuron-part" d="M70,100 Q50,110 30,120"/> <path class="neuron-part" d="M80,115 Q70,135 60,150"/>
         </g>
 
-        <!-- Labels (Repositioned for better fit) -->
-        <text id="dendrites-label-compact" class="label" x="45" y="45">Dendrites</text>      <!-- Moved more top-left -->
-        <text id="soma-label-compact" class="label" x="100" y="128">Cell Body (Soma)</text> <!-- Slightly higher -->
+        <!-- Labels (Repositioned for better fit & Translated) -->
+        <text id="dendrites-label-compact" class="label" x="45" y="45">Dendriten</text>      <!-- Moved more top-left -->
+        <text id="soma-label-compact" class="label" x="100" y="128">Zellkörper (Soma)</text> <!-- Slightly higher -->
         <text id="axon-label-compact" class="label" x="240" y="65">Axon</text>             <!-- Moved slightly up and left -->
-        <text id="axon-terminals-label-compact" class="label" x="365" y="110">Axon Terminals</text> <!-- Moved slightly higher -->
+        <text id="axon-terminals-label-compact" class="label" x="365" y="110">Axonterminalen</text> <!-- Moved slightly higher -->
 
         <!-- Signal Elements (Unchanged structure, IDs updated) -->
         <circle id="signal-dendrite-1-compact" class="signal-dot" r="4"><animateMotion id="anim-dendrite-1-compact" dur="0.8s" begin="indefinite" fill="freeze" calcMode="linear"><mpath href="#signal-path-dendrite-1-compact"/></animateMotion></circle>
@@ -362,6 +361,7 @@
     </svg>
 
     <script>
+        // JS Logic remains the same, only SVG text was changed above
         (function() {
             // Renamed container ID
             const container = document.getElementById('looping-neuron-animation-compact');
@@ -452,14 +452,14 @@
 
 </div>
 <!-- End: Looping Neuron Animation (Compact) -->
-        <p>Think of a biological neuron like a tiny information processor. It receives signals from other neurons through its <strong>dendrites</strong>, processes these signals in its <strong>cell body</strong>, and if the combined signal is strong enough, it fires its own signal down its <strong>axon</strong> to potentially trigger other neurons via its <strong>axon terminals</strong>.</p>
-        <div class="continue-button" onclick="showNextSection(3)">Continue</div>
+        <p>Stell dir ein biologisches Neuron wie einen winzigen Informationsprozessor vor. Es empfängt Signale von anderen Neuronen über seine <strong>Dendriten</strong>, verarbeitet diese Signale in seinem <strong>Zellkörper (Soma)</strong>, und wenn das kombinierte Signal stark genug ist, feuert es sein eigenes Signal entlang seines <strong>Axons</strong>, um potenziell andere Neuronen über seine <strong>Axonterminalen</strong> zu triggern.</p>
+        <div class="continue-button" onclick="showNextSection(3)">Weiter</div>
     </section>
 
     <section id="section3">
-        <h2>The Artificial Neuron Model</h2>
-        <p>Now, we don't need to replicate <em>all</em> the biological complexity. Artificial Neural Networks (ANNs) use a simplified mathematical model inspired by this process. Let's meet the <strong>artificial neuron</strong> (sometimes called a 'unit' or 'perceptron').</p>
-<div class="continue-button" onclick="showNextSection(4)">Continue</div>
+        <h2>Das künstliche Neuron-Modell</h2>
+        <p>Jetzt kommt der Clou: Wir müssen nicht <em>die ganze</em> biologische Komplexität nachbilden. Künstliche Neuronale Netze (KNNs) verwenden ein vereinfachtes mathematisches Modell, das von diesem Prozess inspiriert ist. Lernen wir das <strong>künstliche Neuron</strong> kennen (manchmal auch 'Unit' oder 'Perzeptron' genannt).</p>
+        <div class="continue-button" onclick="showNextSection(4)">Weiter</div>
     </section>
 
     <section id="section4">
@@ -467,7 +467,7 @@
 <div id="interactive-ann-diagram-click-v2">
 
     <style>
-        /* Scoped styles for the ANN diagram (Click Version Refined) */
+        /* Scoped styles for the ANN diagram (Click Version Refined) - Unchanged */
         #interactive-ann-diagram-click-v2 {
             font-family: Arial, sans-serif;
             padding: 10px 5px;
@@ -551,7 +551,7 @@
              transition: background-color 0.3s ease;
         }
         #interactive-ann-diagram-click-v2 #description-ann-v2 strong { color: #333; font-weight: bold; }
-        #interactive-ann-diagram-click-v2 #description-ann-v2 code { background-color: #e9ecef; padding: 0.1em 0.4em; border-radius: 3px; font-family: monospace; }
+        /* Style for inline MathJax was moved global */
         #interactive-ann-diagram-click-v2 #description-ann-v2 em { font-style: italic; color: #555; }
 
     </style>
@@ -569,6 +569,7 @@
 
         <!-- Constants -->
         <script>
+            // Constants remain the same
             const NODE_RADIUS = 12; // Increased node radius
             const SUM_RADIUS = 25;
             const ACT_X = 195;
@@ -581,7 +582,7 @@
             const OUT_CX_TARGET = 320 - NODE_RADIUS; // x-coord for end of act->out line
         </script>
 
-        <!-- Connections (drawn first) -->
+        <!-- Connections (drawn first) - Unchanged -->
         <g id="connections-layer-v2">
              <!-- Input connections -->
             <line class="connection-line" id="line-input-1-v2" x1="47" y1="50" x2="100" y2="98" marker-end="url(#arrowhead-ann-v2)"/> <!-- Adjusted x1, x2, y2 -->
@@ -599,7 +600,7 @@
         <!-- Components (Click Targets) -->
         <!-- 1. Inputs -->
         <g id="inputs-group-ann-v2" class="ann-component">
-             <title>Inputs (Click to learn more)</title>
+             <title>Eingänge (Klicken für Details)</title>
             <circle class="input-node" cx="35" cy="50" r="12"/> <!-- Increased radius -->
             <text class="label-text" x="35" y="50">x<tspan class="subscript">1</tspan></text>
 
@@ -614,7 +615,7 @@
 
         <!-- 2. Weights (Associated with lines, clickable area around text) -->
         <g id="weights-group-ann-v2" class="ann-component">
-             <title>Weights (Click to learn more)</title>
+             <title>Gewichte (Klicken für Details)</title>
             <rect x="55" y="55" width="30" height="20" fill="transparent"/>
             <rect x="55" y="95" width="30" height="20" fill="transparent"/> <!-- Adjusted y -->
             <rect x="55" y="130" width="30" height="20" fill="transparent"/>
@@ -626,7 +627,7 @@
 
          <!-- 3. Bias -->
         <g id="bias-group-ann-v2" class="ann-component">
-             <title>Bias (Click to learn more)</title>
+             <title>Bias (Klicken für Details)</title>
              <rect x="15" y="185" width="40" height="30" fill="transparent"/>
              <rect x="50" y="150" width="40" height="30" fill="transparent"/> <!-- Adjusted y -->
 
@@ -637,21 +638,21 @@
 
         <!-- 4. Summation -->
         <g id="summation-group-ann-v2" class="ann-component">
-             <title>Summation Function (Click to learn more)</title>
+             <title>Summationsfunktion (Klicken für Details)</title>
             <circle class="summation-node" cx="125" cy="100" r="25"/>
             <text class="label-text math-symbol summation-symbol" x="125" y="100">Σ</text>
         </g>
 
         <!-- 5. Activation Function -->
         <g id="activation-group-ann-v2" class="ann-component">
-             <title>Activation Function (Click to learn more)</title>
+             <title>Aktivierungsfunktion (Klicken für Details)</title>
             <rect class="activation-node" x="195" y="75" width="55" height="50" rx="8"/>
             <text class="label-text math-symbol activation-symbol" x="222.5" y="100">φ</text>
         </g>
 
         <!-- 6. Output -->
         <g id="output-group-ann-v2" class="ann-component">
-             <title>Output (Click to learn more)</title>
+             <title>Ausgabe (Klicken für Details)</title>
             <circle class="output-node" cx="320" cy="100" r="12"/> <!-- Increased radius -->
             <text class="label-text" x="320" y="100">a</text>
         </g>
@@ -659,9 +660,10 @@
     </svg>
 
     <!-- Description Area -->
-    <div id="description-ann-v2">Click on a component of the diagram above to learn more about it.</div>
+    <div id="description-ann-v2">Klicke auf eine Komponente des Diagramms oben, um mehr darüber zu erfahren.</div>
 
     <script>
+        // JS Logic updated with translated descriptions using MathJax
         (function() {
             // Unique ID for this instance
             const containerId = 'interactive-ann-diagram-click-v2';
@@ -678,14 +680,14 @@
             const lineInputN = container.querySelector('#line-input-n-v2');
             const lineBias = container.querySelector('#line-bias-v2');
 
-            // Map component group IDs to description text
+            // Map component group IDs to **TRANSLATED** description text using MathJax
             const componentInfo = {
-                'inputs-group-ann-v2': '<strong>Inputs (<code>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub></code>)</strong><br>These are the features or data points fed into the neuron. They could be raw data (like pixel values) or outputs from neurons in a previous layer.',
-                'weights-group-ann-v2': '<strong>Weights (<code>w<sub>1</sub>, w<sub>2</sub>, ..., w<sub>n</sub></code>)</strong><br>Each input <code>x<sub>i</sub></code> has an associated weight <code>w<sub>i</sub></code>. This value determines the <em>strength</em> or <em>importance</em> of that input signal. Weights are typically learned during training.',
-                'bias-group-ann-v2': '<strong>Bias (<code>b</code>)</strong><br>An extra learnable parameter, independent of the inputs. It acts like an offset, making it easier for the neuron to activate or not, regardless of input values. Think of it like shifting the activation threshold.',
-                'summation-group-ann-v2': '<strong>Summation Function (Σ)</strong><br>Calculates the <em>weighted sum</em> (often denoted <code>z</code>). It multiplies each input <code>x<sub>i</sub></code> by its corresponding weight <code>w<sub>i</sub></code>, and adds up all these products, plus the bias <code>b</code>.<br><code>z = (Σ w<sub>i</sub>x<sub>i</sub>) + b</code>',
-                'activation-group-ann-v2': '<strong>Activation Function (<code>φ</code>)</strong><br>Takes the weighted sum (<code>z</code>) as input and applies a (usually non-linear) transformation to produce the neuron\'s final output <code>a</code>. This determines the neuron\'s firing pattern.<br><code>a = φ(z)</code>',
-                'output-group-ann-v2': '<strong>Output (<code>a</code>)</strong><br>The final value computed by the neuron (its activation), which can then be used as the network\'s prediction or passed as input to neurons in the next layer.'
+                'inputs-group-ann-v2': '<strong>Eingänge (\\(x_1, x_2, \\dots, x_n\\))</strong><br>Dies sind die Merkmale oder Datenpunkte, die in das Neuron eingespeist werden. Es könnten Rohdaten sein (wie Pixelwerte) oder Ausgaben von Neuronen einer vorherigen Schicht.',
+                'weights-group-ann-v2': '<strong>Gewichte (\\(w_1, w_2, \\dots, w_n\\))</strong><br>Jeder Eingang \\(x_i\\) hat ein zugehöriges Gewicht \\(w_i\\). Dieser Wert bestimmt die <em>Stärke</em> oder <em>Bedeutung</em> dieses Eingangssignals. Gewichte werden typischerweise während des Trainings gelernt.',
+                'bias-group-ann-v2': '<strong>Bias (\\(b\\))</strong><br>Ein zusätzlicher lernbarer Parameter, unabhängig von den Eingängen. Er wirkt wie ein Offset und erleichtert oder erschwert es dem Neuron zu aktivieren, unabhängig von den Eingangswerten. Stell es dir vor wie das Verschieben des Aktivierungsschwellenwerts.',
+                'summation-group-ann-v2': '<strong>Summationsfunktion (Σ)</strong><br>Berechnet die <em>gewichtete Summe</em> (oft als \\(z\\) bezeichnet). Sie multipliziert jeden Eingang \\(x_i\\) mit seinem entsprechenden Gewicht \\(w_i\\) und addiert all diese Produkte sowie den Bias \\(b\\).<br>\\(z = (\\sum w_i x_i) + b\\)',
+                'activation-group-ann-v2': '<strong>Aktivierungsfunktion (\\(\\varphi\\))</strong><br>Nimmt die gewichtete Summe (\\(z\\)) als Eingabe und wendet eine (normalerweise nichtlineare) Transformation an, um die finale Ausgabe \\(a\\) des Neurons zu erzeugen. Dies bestimmt das Feuermuster des Neurons.<br>\\(a = \\varphi(z)\\)',
+                'output-group-ann-v2': '<strong>Ausgabe (\\(a\\))</strong><br>Der vom Neuron berechnete Endwert (seine Aktivierung), der dann als Vorhersage des Netzwerks verwendet oder als Eingabe an Neuronen in der nächsten Schicht weitergegeben werden kann.'
             };
 
             let currentlyHighlighted = null;
@@ -744,11 +746,15 @@
                 highlightedLines.forEach(line => line && line.classList.add('highlight'));
 
 
-                // Update Description Text
+                // Update Description Text (using translated componentInfo)
                 if (componentInfo[id]) {
                     descriptionEl.innerHTML = componentInfo[id];
+                    // Re-render MathJax for the updated description
+                    if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+                        MathJax.typesetPromise([descriptionEl]);
+                    }
                 } else {
-                    descriptionEl.innerHTML = 'Click on a component of the diagram above to learn more about it.'; // Default text
+                    descriptionEl.innerHTML = 'Klicke auf eine Komponente des Diagramms oben, um mehr darüber zu erfahren.';
                 }
             }
 
@@ -764,131 +770,132 @@
             svg.addEventListener('click', (event) => {
                  if (event.target === svg || event.target.closest('#connections-layer-v2')) { // Click on svg bg or lines layer
                     clearHighlights();
-                    descriptionEl.innerHTML = 'Click on a component of the diagram above to learn more about it.';
+                    descriptionEl.innerHTML = 'Klicke auf eine Komponente des Diagramms oben, um mehr darüber zu erfahren.';
                  }
             });
 
              // Initialize
-            descriptionEl.innerHTML = 'Click on a component of the diagram above to learn more about it.';
+            descriptionEl.innerHTML = 'Klicke auf eine Komponente des Diagramms oben, um mehr darüber zu erfahren.';
 
         })();
     </script>
 
 </div>
 <!-- End: Interactive Artificial Neuron Diagram (Click Version Refined) -->
-        <p>It looks a bit abstract, but it follows a similar input -> process -> output flow. Here's how it works mathematically, in two main steps:</p>
-        <div class="continue-button" onclick="showNextSection(5)">Continue</div>
+        <p>Es sieht vielleicht etwas abstrakt aus, folgt aber einem ähnlichen Fluss: Eingabe -> Verarbeitung -> Ausgabe. So funktioniert es mathematisch, in zwei Hauptschritten:</p>
+        <div class="continue-button" onclick="showNextSection(5)">Weiter</div>
     </section>
 
     <section id="section5">
-        <h3>Step 1: The Weighted Sum</h2>
-        <p>First, the neuron takes its inputs and calculates a <strong>weighted sum</strong>.</p>
+        <h3>Schritt 1: Die gewichtete Summe</h2>
+        <p>Zuerst nimmt das Neuron seine Eingaben und berechnet eine <strong>gewichtete Summe</strong>.</p>
         <div class="math-explainer">
-            <h3>Calculating the Weighted Sum (z)</h3>
+            <h3>Berechnung der gewichteten Summe (\(z\))</h3>
             <div class="step">
-                <p><strong>Step 1:</strong> Each input <code>xᵢ</code> has an associated <strong>weight</strong> <code>wᵢ</code>. Think of the weight as controlling the <em>influence</em> or <em>importance</em> of that specific input. A large weight means the input has a big effect; a small weight means it has less effect.</p>
+                <p><strong>1:</strong> Jeder Eingang \(x_i\) hat ein zugehöriges <strong>Gewicht</strong> \(w_i\). Stell dir das Gewicht als Kontrolle über den <em>Einfluss</em> oder die <em>Bedeutung</em> dieses spezifischen Eingangs vor. Ein großes Gewicht bedeutet, der Eingang hat eine große Wirkung; ein kleines Gewicht bedeutet, er hat weniger Wirkung.</p>
             </div>
             <div class="step">
-                <p><strong>Step 2:</strong> We multiply each input <code>xᵢ</code> by its corresponding weight <code>wᵢ</code>.</p>
+                <p><strong>2:</strong> Wir multiplizieren jeden Eingang \(x_i\) mit seinem entsprechenden Gewicht \(w_i\).</p>
             </div>
             <div class="step">
-                <p><strong>Step 3:</strong> We sum up all these weighted inputs: <code>(w₁ * x₁) + (w₂ * x₂) + ... + (wₙ * xₙ)</code>.</p>
+                <p><strong>3:</strong> Wir summieren all diese gewichteten Eingänge auf: \((w_1 \cdot x_1) + (w_2 \cdot x_2) + \dots + (w_n \cdot x_n)\).</p>
             </div>
             <div class="step">
-                <p><strong>Step 4:</strong> Finally, we add a special term called the <strong>bias</strong> <code>b</code>. The bias acts like an offset or a threshold; it makes it easier or harder for the neuron to activate, independent of the inputs. It's like asking, 'How predisposed is this neuron to fire anyway?'</p>
+                <p><strong>4:</strong> Schließlich addieren wir einen speziellen Term namens <strong>Bias</strong> \(b\). Der Bias wirkt wie ein Offset oder ein Schwellenwert; er macht es für das Neuron einfacher oder schwerer zu aktivieren, unabhängig von den Eingängen. Es ist, als würde man fragen: 'Wie stark ist dieses Neuron sowieso schon geneigt zu feuern?'</p>
             </div>
             <div class="step">
-                <p><strong>Step 5:</strong> The result of this entire calculation is often denoted by <code>z</code>. Here's the full formula using summation notation:</p>
+                <p><strong>5:</strong> Das Ergebnis dieser gesamten Berechnung wird oft mit \(z\) bezeichnet. Hier ist die vollständige Formel mit Summationsnotation:</p>
             </div>
             <div class="formula">
                 \[ z = \left( \sum_{i=1}^{m} w_i x_i \right) + b \]
             </div>
         </div>
-       <div class="continue-button" onclick="showNextSection(6)">Continue</div>
+       <div class="continue-button" onclick="showNextSection(6)">Weiter</div>
     </section>
 
     <section id="section6">
-        <p>So, <code>z</code> represents the aggregated signal strength before the neuron 'decides' what to output.</p>
-<div class="continue-button" onclick="showNextSection(7)">Continue</div>
+        <p>\(z\) repräsentiert also die aggregierte Signalstärke, bevor das Neuron 'entscheidet', was es ausgibt.</p>
+        <div class="continue-button" onclick="showNextSection(7)">Weiter</div>
     </section>
 
     <section id="section7">
- <div class="vocab-section">
-            <h3>Build Your Vocab</h3>
-            <h4 class="vocab-term">Weights (wᵢ)</h4>
-            <p>Parameters associated with each input to a neuron, determining the input's influence on the neuron's output. Learned during training.</p>
-            <h4 class="vocab-term">Bias (b)</h4>
-            <p>An additional parameter in a neuron that is added to the weighted sum of inputs. It adjusts the neuron's activation threshold, allowing the activation function to be shifted. Learned during training.</p>
+         <div class="vocab-section">
+            <h3>Erweiter deinen Wortschatz</h3>
+            <h4 class="vocab-term">Gewichte (\(w_i\))</h4>
+            <p>Parameter, die jedem Eingang eines Neurons zugeordnet sind und den Einfluss des Eingangs auf die Ausgabe des Neurons bestimmen. Werden während des Trainings gelernt.</p>
+            <h4 class="vocab-term">Bias (\(b\))</h4>
+            <p>Ein zusätzlicher Parameter in einem Neuron, der zur gewichteten Summe der Eingänge addiert wird. Er passt den Aktivierungsschwellenwert des Neurons an und ermöglicht das Verschieben der Aktivierungsfunktion. Wird während des Trainings gelernt.</p>
         </div>
-        <div class="continue-button" onclick="showNextSection(8)">Continue</div>
+        <div class="continue-button" onclick="showNextSection(8)">Weiter</div>
     </section>
 
     <section id="section8">
-        <h3>Step 2: The Activation Function</h3>
-        <p>The second step is where the neuron 'decides' its output based on the aggregated signal <code>z</code>. This is done using an <strong>activation function</strong>, often denoted by \( \varphi \).</p>
+        <h3>Schritt 2: Die Aktivierungsfunktion</h3>
+        <p>Der zweite Schritt ist der, bei dem das Neuron basierend auf dem aggregierten Signal \(z\) seine Ausgabe 'entscheidet'. Dies geschieht mithilfe einer <strong>Aktivierungsfunktion</strong>, oft bezeichnet mit \( \varphi \).</p>
         <div class="math-explainer">
-            <h3>Calculating the Output Activation (a)</h3>
+            <h3>Berechnung der Ausgabe-Aktivierung (\(a\))</h3>
             <div class="step">
-                <p><strong>Step 1:</strong> The weighted sum <code>z</code> calculated in Step 1 is fed into the activation function \( \varphi \).</p>
+                <p><strong>1:</strong> Die in Schritt 1 berechnete gewichtete Summe \(z\) wird in die Aktivierungsfunktion \( \varphi \) eingespeist.</p>
             </div>
             <div class="step">
-                <p><strong>Step 2:</strong> The function \( \varphi \) transforms <code>z</code> into the neuron's final output, called the <strong>activation</strong> <code>a</code>.</p>
+                <p><strong>2:</strong> Die Funktion \( \varphi \) transformiert \(z\) in die finale Ausgabe des Neurons, die <strong>Aktivierung</strong> \(a\) genannt wird.</p>
             </div>
             <div class="step">
-                <p><strong>Step 3:</strong> So, the output <code>a</code> is simply:</p>
+                <p><strong>3:</strong> Die Ausgabe \(a\) ist also einfach:</p>
             </div>
             <div class="formula">
                 \[ a = \varphi(z) \]
             </div>
         </div>
-<div class="continue-button" onclick="showNextSection(9)">Continue</div>
+        <div class="continue-button" onclick="showNextSection(9)">Weiter</div>
     </section>
 
     <section id="section9">
-        <p>Think of \( \varphi \) as the neuron's 'firing mechanism'. Different activation functions behave differently – some are simple on/off switches (like the early TLU), others produce graded outputs. We'll explore specific functions in a later lesson.</p>
-<div class="continue-button" onclick="showNextSection(10)">Continue</div>
+        <p>Stell dir \( \varphi \) als den 'Feuermechanismus' des Neurons vor. Unterschiedliche Aktivierungsfunktionen verhalten sich unterschiedlich – einige sind einfache An/Aus-Schalter (wie das frühe TLU), andere erzeugen abgestufte Ausgaben. Wir werden spezifische Funktionen in einer späteren Lektion untersuchen.</p>
+        <div class="continue-button" onclick="showNextSection(10)">Weiter</div>
     </section>
 
     <section id="section10">
         <div class="vocab-section">
-            <h3>Build Your Vocab</h3>
-            <h4 class="vocab-term">Activation Function (\( \varphi \))</h4>
-            <p>A function applied to the weighted sum (<code>z</code>) in a neuron to compute its output activation (<code>a</code>). It introduces non-linearities, which are crucial for learning complex patterns.</p>
-            <h4 class="vocab-term">Activation (a)</h4>
-            <p>The output value produced by a neuron after applying the activation function to the weighted sum of its inputs plus bias.</p>
+            <h3>Erweiter deinen Wortschatz</h3>
+            <h4 class="vocab-term">Aktivierungsfunktion (\( \varphi \))</h4>
+            <p>Eine Funktion, die auf die gewichtete Summe (\(z\)) in einem Neuron angewendet wird, um dessen Ausgabe-Aktivierung (\(a\)) zu berechnen. Sie führt Nichtlinearitäten ein, die entscheidend für das Lernen komplexer Muster sind.</p>
+            <h4 class="vocab-term">Aktivierung (\(a\))</h4>
+            <p>Der Ausgabewert, der von einem Neuron erzeugt wird, nachdem die Aktivierungsfunktion auf die gewichtete Summe seiner Eingänge plus Bias angewendet wurde.</p>
         </div>
-        <div class="continue-button" onclick="showNextSection(11)">Continue</div>
+        <div class="continue-button" onclick="showNextSection(11)">Weiter</div>
     </section>
 
     <section id="section11">
-        <h2>Putting It All Together</h2>
-        <p>Combining both steps, the complete calculation for a single artificial neuron is:</p>
+        <h2>Fassen wir zusammen</h2>
+        <p>Wenn wir beide Schritte kombinieren, lautet die vollständige Berechnung für ein einzelnes künstliches Neuron:</p>
         <div class="math-explainer">
-            <h3>Neuron Output Equation</h3>
+            <h3>Gleichung für die Neuron-Ausgabe</h3>
             <div class="formula">
                 \[ a = \varphi\left( \left( \sum_{i=1}^{m} w_i x_i \right) + b \right) \]
             </div>
         </div>
-        <p>This simple formula is the heart of every artificial neuron!</p>
-<div class="continue-button" onclick="showNextSection(12)">Continue</div>
+        <p>Diese einfache Formel ist das Herzstück jedes künstlichen Neurons!</p>
+        <div class="continue-button" onclick="showNextSection(12)">Weiter</div>
     </section>
 
     <section id="section12">
         <div class="why-it-matters">
-            <h3>Why It Matters</h3>
-            <p>This artificial neuron model, despite its simplicity compared to biology, is the fundamental building block of all the powerful neural networks we see today. Understanding how it computes its output is essential before we connect them into layers.</p>
+            <h3>Warum ist das wichtig?</h3>
+            <p>Dieses künstliche Neuron-Modell ist trotz seiner Einfachheit im Vergleich zur Biologie der fundamentale Baustein all der leistungsstarken neuronalen Netze, die wir heute sehen. Zu verstehen, wie es seine Ausgabe berechnet, ist essenziell, bevor wir sie zu Schichten verbinden.</p>
         </div>
-<div class="continue-button" onclick="showNextSection(13)">Continue</div>
+        <div class="continue-button" onclick="showNextSection(13)">Weiter</div>
     </section>
 
     <section id="section13">
-<h2>Let's see it in action</h2>
-        <p>Play with the sliders!</p>
+        <h2>Schauen wir es uns in Aktion an!</h2>
+        <p>Spiel mit den Reglern! Wie beeinflusst die Erhöhung eines Gewichts \(w\) die Ausgabe \(a\), wenn der zugehörige Eingang \(x\) positiv ist?
+        </p>
         <!-- Start: Interactive Neuron Simulation -->
 <div id="neuron-simulation">
 
     <style>
-        /* Scoped styles for the Neuron Simulation */
+        /* Scoped styles for the Neuron Simulation - Unchanged */
         #neuron-simulation {
             font-family: Arial, sans-serif;
             padding: 15px;
@@ -985,10 +992,7 @@
             line-height: 1.6;
             color: #333;
         }
-        #neuron-simulation .output-area code {
-            font-weight: bold;
-            color: #1e90ff; /* Like vocab-term */
-        }
+        /* Removed code styling for output, MathJax will handle */
          #neuron-simulation .output-area .formula {
              color: #555;
              font-style: italic;
@@ -1012,12 +1016,7 @@
             margin-top: 0;
             margin-bottom: 10px;
          }
-        #neuron-simulation .guidance-area code {
-            background-color: #dadaf7;
-            padding: 0.1em 0.4em;
-            border-radius: 3px;
-            font-family: monospace;
-        }
+         /* Removed code styling for guidance, MathJax will handle */
 
 
         /* Responsive adjustments */
@@ -1047,14 +1046,14 @@
                   <path d="M 0 0 L 10 5 L 0 10 z" fill="#90a4ae"/>
                 </marker>
             </defs>
-            <!-- Lines -->
+            <!-- Lines - Unchanged -->
             <line class="sim-line" x1="25" y1="30" x2="70" y2="65" />
             <line class="sim-line" x1="25" y1="70" x2="70" y2="75" />
             <line class="sim-bias-line" x1="25" y1="130" x2="70" y2="85" />
             <line class="sim-line" x1="110" y1="75" x2="145" y2="75" />
             <line class="sim-line" x1="185" y1="75" x2="200" y2="75" />
 
-            <!-- Nodes -->
+            <!-- Nodes - Text content mostly symbolic, remains the same -->
             <circle class="sim-node sim-input" cx="15" cy="30" r="10"/> <text class="sim-label" x="15" y="30">x<tspan class="sim-sub">1</tspan></text>
             <circle class="sim-node sim-input" cx="15" cy="70" r="10"/> <text class="sim-label" x="15" y="70">x<tspan class="sim-sub">2</tspan></text>
             <circle class="sim-node sim-input" cx="15" cy="130" r="8"/> <text class="sim-label" x="15" y="130">1</text> <!-- Bias Input -->
@@ -1064,7 +1063,7 @@
             <!-- Output Circle drawn in JS potentially -->
             <text class="sim-label" x="205" y="75">a</text>
 
-             <!-- Weights/Bias Text -->
+             <!-- Weights/Bias Text - Symbolic, remains the same -->
             <text class="sim-weight" x="45" y="40">w<tspan class="sim-sub">1</tspan></text>
             <text class="sim-weight" x="45" y="75">w<tspan class="sim-sub">2</tspan></text>
             <text class="sim-weight" x="45" y="115">b</text>
@@ -1074,38 +1073,40 @@
     <!-- 2. Controls Area -->
     <div class="controls-area">
         <!-- Input x1 -->
-        <label for="input-x1">x<sub>1</sub>:</label>
+        <label for="input-x1">\(x_1\):</label> <!-- Using MathJax -->
         <input type="number" id="input-x1" value="1.0" step="0.1">
-        <span class="value-display input-value-display">Input</span>
+        <span class="value-display input-value-display">Eingabe</span>
 
         <!-- Input x2 -->
-        <label for="input-x2">x<sub>2</sub>:</label>
+        <label for="input-x2">\(x_2\):</label> <!-- Using MathJax -->
         <input type="number" id="input-x2" value="-0.5" step="0.1">
-         <span class="value-display input-value-display">Input</span>
+         <span class="value-display input-value-display">Eingabe</span>
 
         <!-- Weight w1 -->
-        <label for="slider-w1">w<sub>1</sub>:</label>
+        <label for="slider-w1">\(w_1\):</label> <!-- Using MathJax -->
         <input type="range" id="slider-w1" min="-2" max="2" value="0.8" step="0.1">
         <span id="value-w1" class="value-display">0.8</span>
 
         <!-- Weight w2 -->
-        <label for="slider-w2">w<sub>2</sub>:</label>
+        <label for="slider-w2">\(w_2\):</label> <!-- Using MathJax -->
         <input type="range" id="slider-w2" min="-2" max="2" value="1.2" step="0.1">
         <span id="value-w2" class="value-display">1.2</span>
 
         <!-- Bias b -->
-        <label for="slider-b">b:</label>
+        <label for="slider-b">\(b\):</label> <!-- Using MathJax -->
         <input type="range" id="slider-b" min="-2" max="2" value="-0.5" step="0.1">
         <span id="value-b" class="value-display">-0.5</span>
     </div>
 
     <!-- 3. Output Display Area -->
     <div class="output-area">
-        <div class="formula">z = (w<sub>1</sub> * x<sub>1</sub>) + (w<sub>2</sub> * x<sub>2</sub>) + b</div>
-        <div id="output-z">Weighted Sum (z): calculating...</div>
+        <!-- Updated formula with MathJax -->
+        <div class="formula">\(z = (w_1 \cdot x_1) + (w_2 \cdot x_2) + b\)</div>
+        <div id="output-z">Gewichtete Summe (z): berechne...</div>
         <hr style="border: none; border-top: 1px solid #ccc; margin: 10px 0;">
-        <div class="formula">a = φ(z) = 1 / (1 + exp(-z))   <i>(Sigmoid)</i></div>
-        <div id="output-a">Activation (a): calculating...</div>
+        <!-- Updated formula with MathJax -->
+        <div class="formula">\(a = \varphi(z)\) = <i>(Sigmoid)</i></div>
+        <div id="output-a">Aktivierung (a): berechne...</div>
     </div>
 
   
@@ -1113,6 +1114,7 @@
     
 
     <script>
+        // JS Logic updated to output MathJax strings
         (function() {
             const container = document.getElementById('neuron-simulation');
             if (!container) return;
@@ -1133,7 +1135,7 @@
             const outputZ = container.querySelector('#output-z');
             const outputA = container.querySelector('#output-a');
 
-            // Sigmoid Function
+            // Sigmoid Function (remains the same)
             function sigmoid(z) {
                 return 1 / (1 + Math.exp(-z));
             }
@@ -1153,15 +1155,21 @@
                 // Calculate activation (a)
                 const a = sigmoid(z);
 
-                // Update display - showing breakdown for z
-                outputZ.innerHTML = `Weighted Sum (z): <br>
-                    <code>(${w1.toFixed(2)} * ${x1.toFixed(2)}) + (${w2.toFixed(2)} * ${x2.toFixed(2)}) + (${b.toFixed(2)}) = <strong>${z.toFixed(4)}</strong></code>`;
+                // Update display - showing breakdown for z (with MathJax)
+                outputZ.innerHTML = `Gewichtete Summe (\\(z\\)): <br>
+                    \\((${w1.toFixed(2)} \\cdot ${x1.toFixed(2)}) + (${w2.toFixed(2)} \\cdot ${x2.toFixed(2)}) + (${b.toFixed(2)}) = \\mathbf{${z.toFixed(4)}}\\)`;
 
-                 outputA.innerHTML = `Activation (a): <br>
-                    <code>φ(${z.toFixed(4)}) = <strong>${a.toFixed(4)}</strong></code>`;
+                 // Update display - showing activation calculation (with MathJax)
+                 outputA.innerHTML = `Aktivierung (\\(a\\)): <br>
+                    \\(\\varphi(${z.toFixed(4)}) = \\mathbf{${a.toFixed(4)}}\\)`;
+                
+                // Tell MathJax to re-render the updated content
+                if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+                     MathJax.typesetPromise([outputZ, outputA]);
+                }
             }
 
-            // Event Listeners for all inputs/sliders
+            // Event Listeners for all inputs/sliders (logic remains the same)
             const controls = [inputX1, inputX2, sliderW1, sliderW2, sliderB];
             controls.forEach(control => {
                 control.addEventListener('input', () => {
@@ -1175,7 +1183,7 @@
                 });
             });
 
-            // Initial setup
+            // Initial setup (logic remains the same)
             // Set initial slider value displays
              valueW1.textContent = sliderW1.value;
              valueW2.textContent = sliderW2.value;
@@ -1188,73 +1196,83 @@
 
 </div>
 <!-- End: Interactive Neuron Simulation -->
-  <!-- 4. Guidance Text Area -->
+  <!-- 4. Guidance Text Area (Updated to use MathJax) -->
 <div class="stop-and-think">
-            <h3>Stop and Think</h3>
+            <h3>Halte inne und denke nach</h3>
             <ul>
-            <li>How does increasing a weight <code>w</code> affect the output <code>a</code> when the corresponding input <code>x</code> is positive?</li>
-            <li>What about when <code>x</code> is negative?</li>
-            <li>What does changing the bias <code>b</code> do to the output?</li>
-        </ul>
-         (Note: Sigmoid is just one possible activation function φ.)
+            <li>Wie beeinflusst die Erhöhung eines Gewichts \(w\) die Ausgabe \(a\), wenn der zugehörige Eingang \(x\) positiv ist?</li>
+            <li>Was ist, wenn \(x\) negativ ist?</li>
+            <li>Was bewirkt die Änderung des Bias \(b\) bei der Ausgabe?</li>
+            </ul>
+         (Hinweis: Sigmoid ist nur eine mögliche Aktivierungsfunktion \(\varphi\).)
         </div>
-        <div class="continue-button" onclick="showNextSection(14)">Continue</div>
+        <div class="continue-button" onclick="showNextSection(14)">Weiter</div>
     </section>
 
     <section id="section14">
-        <h2>Learning vs. Fixed Parts</h2>
-        <p>It's important to distinguish what the network <em>learns</em> from what we <em>choose</em>.</p>
+        <h2>Gelernte vs. feste Teile</h2>
+        <p>Hier können wir mit allen Parametern experimentieren, aber in echten Netzwerken ist es wichtig zu unterscheiden, was das Netzwerk <em>lernt</em> und was wir <em>auswählen</em>.</p>
         <ul>
-            <li><strong>Learned Parameters:</strong> The <strong>weights (wᵢ)</strong> and the <strong>bias (b)</strong> are the parameters that the network adjusts during the training process to solve a specific task.</li>
-            <li><strong>Chosen Hyperparameter:</strong> The <strong>activation function (\( \varphi \))</strong> is typically chosen by the network designer beforehand (though there are advanced techniques where this can also be learned). Different choices of \( \varphi \) are suitable for different tasks or network layers.</li>
+            <li><strong>Gelernte Parameter:</strong> Die <strong>Gewichte (\(w_i\))</strong> und der <strong>Bias (\(b\))</strong> sind die Parameter, die das Netzwerk während des Trainingsprozesses anpasst, um eine spezifische Aufgabe zu lösen.</li>
+            <li><strong>Gewählter Hyperparameter:</strong> Die <strong>Aktivierungsfunktion (\(\varphi\))</strong> wird typischerweise vom Netzwerkdesigner im Voraus ausgewählt (obwohl es fortgeschrittene Techniken gibt, bei denen auch dies gelernt werden kann). Unterschiedliche Wahlen von \(\varphi\) eignen sich für verschiedene Aufgaben oder Netzwerkschichten.</li>
         </ul>
-<div class="continue-button" onclick="showNextSection(15)">Continue</div>
+        <div class="continue-button" onclick="showNextSection(15)">Weiter</div>
     </section>
 
     <section id="section15">
         <div class="faq-section">
-            <h3>Frequently Asked Questions</h3>
-            <h4>Why do we need the bias term? Can't we just adjust the weights?</h4>
-            <p>Great question! Think of the weighted sum <code>Σ(wᵢxᵢ)</code> as defining a line or plane (in higher dimensions). The bias <code>b</code> allows us to <em>shift</em> this line/plane. Without the bias, the decision boundary created by the neuron would always have to pass through the origin (where all inputs are zero). The bias gives the neuron more flexibility to place its decision boundary wherever it's needed to best separate the data.</p>
+            <h3>Häufig gestellte Fragen (FAQ)</h3>
+            <h4>Warum brauchen wir den Bias-Term? Können wir nicht einfach die Gewichte anpassen?</h4>
+            <p>Super Frage! Stell dir die gewichtete Summe \(\sum(w_i x_i)\) als eine Linie oder Ebene (in höheren Dimensionen) vor. Der Bias \(b\) erlaubt uns, diese Linie/Ebene zu <em>verschieben</em>. Ohne den Bias müsste die vom Neuron erzeugte Entscheidungsgrenze immer durch den Ursprung verlaufen (wo alle Eingaben null sind). Der Bias gibt dem Neuron mehr Flexibilität, seine Entscheidungsgrenze dort zu platzieren, wo sie am besten zur Trennung der Daten benötigt wird.</p>
         </div>
-        <div class="continue-button" onclick="showNextSection(16)">Continue</div>
+        <div class="continue-button" onclick="showNextSection(16)">Weiter</div>
     </section>
 
     <section id="section16">
-        <h2>Lesson Recap</h2>
-        <p>Awesome! We've unwrapped the artificial neuron:</p>
+        <h2>Zusammenfassung der Lektion</h2>
+        <p>Großartig! Wir haben das künstliche Neuron entschlüsselt:</p>
         <ul>
-            <li><strong>Inspiration:</strong> It's loosely based on biological neurons (input -> process -> output).</li>
-            <li><strong>Components:</strong> It has inputs (<code>xᵢ</code>), weights (<code>wᵢ</code>), a bias (<code>b</code>), a summation step (<code>z</code>), an activation function (\( \varphi \)), and an output (<code>a</code>).</li>
-            <li><strong>Calculation:</strong> It computes \(a = \varphi\left( \sum w_i x_i + b \right)\).</li>
-            <li><strong>Learning:</strong> Weights and bias are learned; the activation function is usually chosen.</li>
+            <li><strong>Inspiration:</strong> Es basiert lose auf biologischen Neuronen (Eingabe -> Verarbeitung -> Ausgabe).</li>
+            <li><strong>Komponenten:</strong> Es hat Eingänge (\(x_i\)), Gewichte (\(w_i\)), einen Bias (\(b\)), einen Summationsschritt (\(z\)), eine Aktivierungsfunktion (\(\varphi\)) und eine Ausgabe (\(a\)).</li>
+            <li><strong>Berechnung:</strong> Es berechnet \(a = \varphi( \sum w_i x_i + b )\).</li> <!-- Simplified from display math -->
+            <li><strong>Lernen:</strong> Gewichte und Bias werden gelernt; die Aktivierungsfunktion wird normalerweise gewählt.</li>
         </ul>
+        <div class="continue-button" onclick="showNextSection(17)">Weiter</div>
+    </section>
+
+    <section id="section17">
         <div class="test-your-knowledge">
-            <h3>Test Your Knowledge</h3>
-            <h4>What is the main purpose of the weights (<code>wᵢ</code>) in an artificial neuron?</h4>
-            <div class="option" onclick="selectOption(1)">To set the neuron's baseline activation level.</div>
-            <div class="option" onclick="selectOption(2)">To control the influence or importance of each corresponding input <code>xᵢ</code>.</div>
-            <div class="option" onclick="selectOption(3)">To apply a non-linear transformation to the summed signal.</div>
-            <div class="option" onclick="selectOption(4)">To ensure the output is always positive.</div>
+            <h3>Teste dein Wissen</h3>
+            <h4>Was ist der Hauptzweck der Gewichte (\(w_i\)) in einem künstlichen Neuron?</h4>
+            <div class="option" onclick="selectOption(1)">Das grundlegende Aktivierungslevel des Neurons festlegen.</div>
+            <div class="option" onclick="selectOption(2)">Den Einfluss oder die Bedeutung jedes entsprechenden Eingangs \(x_i\) steuern.</div>
+            <div class="option" onclick="selectOption(3)">Eine nichtlineare Transformation auf das summierte Signal anwenden.</div>
+            <div class="option" onclick="selectOption(4)">Sicherstellen, dass die Ausgabe immer positiv ist.</div>
             
             <div id="feedback-1" class="option-feedback incorrect">
-                <p>That's more the role of the bias <code>b</code>.</p>
+                <p>Das ist eher die Rolle des Bias \(b\).</p>
             </div>
             <div id="feedback-2" class="option-feedback correct">
-                <p>Correct! Weights determine how much each input contributes to the neuron's total activation signal <code>z</code>.</p>
+                <p>Korrekt! Gewichte bestimmen, wie stark jeder Eingang zum gesamten Aktivierungssignal \(z\) des Neurons beiträgt.</p>
             </div>
             <div id="feedback-3" class="option-feedback incorrect">
-                <p>That's the job of the activation function <code>φ</code>.</p>
+                <p>Das ist die Aufgabe der Aktivierungsfunktion \(\varphi\).</p>
             </div>
             <div id="feedback-4" class="option-feedback incorrect">
-                <p>The range of the output depends entirely on the chosen activation function <code>φ</code>.</p>
+                <p>Der Wertebereich der Ausgabe hängt ganz von der gewählten Aktivierungsfunktion \(\varphi\) ab.</p>
             </div>
         </div>
-        <p>We now understand the basic building block. In the next lesson, we'll see how to connect these neurons together in layers to create powerful Neural Networks!</p>
+        <div class="continue-button" onclick="showNextSection(18)">Weiter</div>
+    </section>
+
+    <section id="section18">
+        <p>Wir verstehen jetzt den grundlegenden Baustein. In der nächsten Lektion sehen wir, wie wir diese Neuronen zu Schichten verbinden, um leistungsstarke Neuronale Netze zu erstellen!</p>
+        <p>Hier geht's zum nächsten Learning Nugget!</p>
     </section>
 
     <script>
-        // Show the first section initially
+        // JS for section reveal, answer reveal, quiz selection remains the same.
+        // Interactive neuron JS is updated within its section (13).
         document.getElementById("section1").style.display = "block";
         document.getElementById("section1").style.opacity = "1";
 
@@ -1299,36 +1317,13 @@
             event.target.classList.add('selected');
             
             // Show the feedback for the selected option
-            document.getElementById('feedback-' + optionNumber).style.display = 'block';
+            const feedbackEl = document.getElementById('feedback-' + optionNumber);
+            feedbackEl.style.display = 'block';
+            // Rerender MathJax for feedback if needed
+            if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+                 MathJax.typesetPromise([feedbackEl]);
+            }
         }
-
-        function updateSliderValue(sliderId) {
-            const slider = document.getElementById(sliderId);
-            const valueDisplay = document.getElementById(sliderId + '-value');
-            valueDisplay.textContent = slider.value;
-        }
-
-        function sigmoid(z) {
-            return 1 / (1 + Math.exp(-z));
-        }
-
-        function updateNeuron() {
-            const x1 = parseFloat(document.getElementById('input1').value);
-            const x2 = parseFloat(document.getElementById('input2').value);
-            const w1 = parseFloat(document.getElementById('weight1').value);
-            const w2 = parseFloat(document.getElementById('weight2').value);
-            const b = parseFloat(document.getElementById('bias').value);
-            
-            const z = w1 * x1 + w2 * x2 + b;
-            const a = sigmoid(z);
-            
-            document.getElementById('weighted-sum').textContent = z.toFixed(2);
-            document.getElementById('output').textContent = a.toFixed(2);
-        }
-
-        // Initialize the interactive neuron
-        updateNeuron();
     </script>
 </body>
 </html>
-    
