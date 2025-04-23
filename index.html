@@ -792,19 +792,19 @@
         <div class="math-explainer">
             <h3>Berechnung der gewichteten Summe (\(z\))</h3>
             <div class="step">
-                <p><strong>1:</strong> Jeder Eingang \(x_i\) hat ein zugehöriges <strong>Gewicht</strong> \(w_i\). Stell dir das Gewicht als Kontrolle über den <em>Einfluss</em> oder die <em>Bedeutung</em> dieses spezifischen Eingangs vor. Ein großes Gewicht bedeutet, der Eingang hat eine große Wirkung; ein kleines Gewicht bedeutet, er hat weniger Wirkung.</p>
+                <p><strong>1.</strong> Jeder Eingang \(x_i\) hat ein zugehöriges <strong>Gewicht</strong> \(w_i\). Stell dir das Gewicht als Kontrolle über den <em>Einfluss</em> oder die <em>Bedeutung</em> dieses spezifischen Eingangs vor. Ein großes Gewicht bedeutet, der Eingang hat eine große Wirkung; ein kleines Gewicht bedeutet, er hat weniger Wirkung.</p>
             </div>
             <div class="step">
-                <p><strong>2:</strong> Wir multiplizieren jeden Eingang \(x_i\) mit seinem entsprechenden Gewicht \(w_i\).</p>
+                <p><strong>2.</strong> Wir multiplizieren jeden Eingang \(x_i\) mit seinem entsprechenden Gewicht \(w_i\).</p>
             </div>
             <div class="step">
-                <p><strong>3:</strong> Wir summieren all diese gewichteten Eingänge auf: \((w_1 \cdot x_1) + (w_2 \cdot x_2) + \dots + (w_n \cdot x_n)\).</p>
+                <p><strong>3.</strong> Wir summieren all diese gewichteten Eingänge auf: \((w_1 \cdot x_1) + (w_2 \cdot x_2) + \dots + (w_n \cdot x_n)\).</p>
             </div>
             <div class="step">
-                <p><strong>4:</strong> Schließlich addieren wir einen speziellen Term namens <strong>Bias</strong> \(b\). Der Bias wirkt wie ein Offset oder ein Schwellenwert; er macht es für das Neuron einfacher oder schwerer zu aktivieren, unabhängig von den Eingängen. Es ist, als würde man fragen: 'Wie stark ist dieses Neuron sowieso schon geneigt zu feuern?'</p>
+                <p><strong>4.</strong> Schließlich addieren wir einen speziellen Term namens <strong>Bias</strong> \(b\). Der Bias wirkt wie ein Offset oder ein Schwellenwert; er macht es für das Neuron einfacher oder schwerer zu aktivieren, unabhängig von den Eingängen. Es ist, als würde man fragen: 'Wie stark ist dieses Neuron sowieso schon geneigt zu feuern?'</p>
             </div>
             <div class="step">
-                <p><strong>5:</strong> Das Ergebnis dieser gesamten Berechnung wird oft mit \(z\) bezeichnet. Hier ist die vollständige Formel mit Summationsnotation:</p>
+                <p><strong>5.</strong> Das Ergebnis dieser gesamten Berechnung wird oft mit \(z\) bezeichnet. Hier ist die vollständige Formel mit Summationsnotation:</p>
             </div>
             <div class="formula">
                 \[ z = \left( \sum_{i=1}^{m} w_i x_i \right) + b \]
@@ -835,13 +835,13 @@
         <div class="math-explainer">
             <h3>Berechnung der Ausgabe-Aktivierung (\(a\))</h3>
             <div class="step">
-                <p><strong>1:</strong> Die in Schritt 1 berechnete gewichtete Summe \(z\) wird in die Aktivierungsfunktion \( \varphi \) eingespeist.</p>
+                <p><strong>1.</strong> Die in Schritt 1 berechnete gewichtete Summe \(z\) wird in die Aktivierungsfunktion \( \varphi \) eingespeist.</p>
             </div>
             <div class="step">
-                <p><strong>2:</strong> Die Funktion \( \varphi \) transformiert \(z\) in die finale Ausgabe des Neurons, die <strong>Aktivierung</strong> \(a\) genannt wird.</p>
+                <p><strong>2.</strong> Die Funktion \( \varphi \) transformiert \(z\) in die finale Ausgabe des Neurons, die <strong>Aktivierung</strong> \(a\) genannt wird.</p>
             </div>
             <div class="step">
-                <p><strong>3:</strong> Die Ausgabe \(a\) ist also einfach:</p>
+                <p><strong>3.</strong> Die Ausgabe \(a\) ist also einfach:</p>
             </div>
             <div class="formula">
                 \[ a = \varphi(z) \]
@@ -889,8 +889,7 @@
 
     <section id="section13">
         <h2>Schauen wir es uns in Aktion an!</h2>
-        <p>Spiel mit den Reglern! Wie beeinflusst die Erhöhung eines Gewichts \(w\) die Ausgabe \(a\), wenn der zugehörige Eingang \(x\) positiv ist?
-        </p>
+        <p>Spiele mit den Reglern des des künstlichen Neurons und probiere verschiedene Einstellungen aus!</p>
         <!-- Start: Interactive Neuron Simulation -->
 <div id="neuron-simulation">
 
