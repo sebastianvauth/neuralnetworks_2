@@ -458,7 +458,8 @@
 
     <section id="section3">
         <h2>Das künstliche Neuron-Modell</h2>
-        <p>Jetzt kommt der Clou: Wir müssen nicht <em>die ganze</em> biologische Komplexität nachbilden. Künstliche Neuronale Netze (KNNs) verwenden ein vereinfachtes mathematisches Modell, das von diesem Prozess inspiriert ist. Lernen wir das <strong>künstliche Neuron</strong> kennen (manchmal auch 'Unit' oder 'Perzeptron' genannt).</p>
+        <p>Jetzt kommt der Clou: Wir müssen nicht <em>die ganze</em> biologische Komplexität nachbilden. Künstliche Neuronale Netze (KNNs) verwenden ein vereinfachtes mathematisches Modell, das von diesem Prozess inspiriert ist.</p>
+        <p>Lernen wir das <strong>künstliche Neuron</strong> kennen (manchmal auch 'Unit' oder 'Perzeptron' genannt).</p>
         <div class="continue-button" onclick="showNextSection(4)">Weiter</div>
     </section>
 
@@ -782,11 +783,20 @@
 
 </div>
 <!-- End: Interactive Artificial Neuron Diagram (Click Version Refined) -->
-        <p>Es sieht vielleicht etwas abstrakt aus, folgt aber einem ähnlichen Fluss: Eingabe -> Verarbeitung -> Ausgabe. So funktioniert es mathematisch, in zwei Hauptschritten:</p>
-        <div class="continue-button" onclick="showNextSection(5)">Weiter</div>
+                <div class="continue-button" onclick="showNextSection(5)">Weiter</div>
     </section>
 
     <section id="section5">
+        <p>Es sieht vielleicht etwas abstrakt aus, folgt aber einem ähnlichen Fluss: Eingabe -> Verarbeitung -> Ausgabe.</p>
+                <div class="continue-button" onclick="showNextSection(6)">Weiter</div>
+    </section>
+
+    <section id="section6">
+        <p>So funktioniert es mathematisch, in zwei Hauptschritten:</p>
+        <div class="continue-button" onclick="showNextSection(7)">Weiter</div>
+    </section>
+
+    <section id="section7">
         <h3>Schritt 1: Die gewichtete Summe</h2>
         <p>Zuerst nimmt das Neuron seine Eingaben und berechnet eine <strong>gewichtete Summe</strong>.</p>
         <div class="math-explainer">
@@ -810,15 +820,15 @@
                 \[ z = \left( \sum_{i=1}^{m} w_i x_i \right) + b \]
             </div>
         </div>
-       <div class="continue-button" onclick="showNextSection(6)">Weiter</div>
+       <div class="continue-button" onclick="showNextSection(8)">Weiter</div>
     </section>
 
-    <section id="section6">
+    <section id="section8">
         <p>\(z\) repräsentiert also die aggregierte Signalstärke, bevor das Neuron 'entscheidet', was es ausgibt.</p>
-        <div class="continue-button" onclick="showNextSection(7)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(9)">Weiter</div>
     </section>
 
-    <section id="section7">
+    <section id="section9">
          <div class="vocab-section">
             <h3>Erweiter deinen Wortschatz</h3>
             <h4 class="vocab-term">Gewichte (\(w_i\))</h4>
@@ -826,10 +836,10 @@
             <h4 class="vocab-term">Bias (\(b\))</h4>
             <p>Ein zusätzlicher Parameter in einem Neuron, der zur gewichteten Summe der Eingänge addiert wird. Er passt den Aktivierungsschwellenwert des Neurons an und ermöglicht das Verschieben der Aktivierungsfunktion. Wird während des Trainings gelernt.</p>
         </div>
-        <div class="continue-button" onclick="showNextSection(8)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(10)">Weiter</div>
     </section>
 
-    <section id="section8">
+    <section id="section10">
         <h3>Schritt 2: Die Aktivierungsfunktion</h3>
         <p>Der zweite Schritt ist der, bei dem das Neuron basierend auf dem aggregierten Signal \(z\) seine Ausgabe 'entscheidet'. Dies geschieht mithilfe einer <strong>Aktivierungsfunktion</strong>, oft bezeichnet mit \( \varphi \).</p>
         <div class="math-explainer">
@@ -847,15 +857,15 @@
                 \[ a = \varphi(z) \]
             </div>
         </div>
-        <div class="continue-button" onclick="showNextSection(9)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(11)">Weiter</div>
     </section>
 
-    <section id="section9">
-        <p>Stell dir \( \varphi \) als den 'Feuermechanismus' des Neurons vor. Unterschiedliche Aktivierungsfunktionen verhalten sich unterschiedlich – einige sind einfache An/Aus-Schalter (wie das frühe TLU), andere erzeugen abgestufte Ausgaben. Wir werden spezifische Funktionen in einer späteren Lektion untersuchen.</p>
-        <div class="continue-button" onclick="showNextSection(10)">Weiter</div>
+    <section id="section11">
+        <p>Stell dir \( \varphi \) als den 'Abfeuermechanismus' des Neurons vor. Unterschiedliche Aktivierungsfunktionen verhalten sich unterschiedlich – einige sind einfache An/Aus-Schalter (wie das frühe TLU), andere erzeugen abgestufte Ausgaben. Wir werden spezifische Funktionen in einer späteren Lektion untersuchen.</p>
+        <div class="continue-button" onclick="showNextSection(12)">Weiter</div>
     </section>
 
-    <section id="section10">
+    <section id="section12">
         <div class="vocab-section">
             <h3>Erweiter deinen Wortschatz</h3>
             <h4 class="vocab-term">Aktivierungsfunktion (\( \varphi \))</h4>
@@ -863,10 +873,10 @@
             <h4 class="vocab-term">Aktivierung (\(a\))</h4>
             <p>Der Ausgabewert, der von einem Neuron erzeugt wird, nachdem die Aktivierungsfunktion auf die gewichtete Summe seiner Eingänge plus Bias angewendet wurde.</p>
         </div>
-        <div class="continue-button" onclick="showNextSection(11)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(13)">Weiter</div>
     </section>
 
-    <section id="section11">
+    <section id="section13">
         <h2>Fassen wir zusammen</h2>
         <p>Wenn wir beide Schritte kombinieren, lautet die vollständige Berechnung für ein einzelnes künstliches Neuron:</p>
         <div class="math-explainer">
@@ -876,18 +886,18 @@
             </div>
         </div>
         <p>Diese einfache Formel ist das Herzstück jedes künstlichen Neurons!</p>
-        <div class="continue-button" onclick="showNextSection(12)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(14)">Weiter</div>
     </section>
 
-    <section id="section12">
+    <section id="section14">
         <div class="why-it-matters">
             <h3>Warum ist das wichtig?</h3>
             <p>Dieses künstliche Neuron-Modell ist trotz seiner Einfachheit im Vergleich zur Biologie der fundamentale Baustein all der leistungsstarken neuronalen Netze, die wir heute sehen. Zu verstehen, wie es seine Ausgabe berechnet, ist essenziell, bevor wir sie zu Schichten verbinden.</p>
         </div>
-        <div class="continue-button" onclick="showNextSection(13)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(15)">Weiter</div>
     </section>
 
-    <section id="section13">
+    <section id="section15">
         <h2>Schauen wir es uns in Aktion an!</h2>
         <p>Spiele mit den Reglern des des künstlichen Neurons und probiere verschiedene Einstellungen aus!</p>
         <!-- Start: Interactive Neuron Simulation -->
@@ -1205,29 +1215,29 @@
             </ul>
          (Hinweis: Sigmoid ist nur eine mögliche Aktivierungsfunktion \(\varphi\).)
         </div>
-        <div class="continue-button" onclick="showNextSection(14)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(16)">Weiter</div>
     </section>
 
-    <section id="section14">
+    <section id="section16">
         <h2>Gelernte vs. feste Teile</h2>
         <p>Hier können wir mit allen Parametern experimentieren, aber in echten Netzwerken ist es wichtig zu unterscheiden, was das Netzwerk <em>lernt</em> und was wir <em>auswählen</em>.</p>
         <ul>
             <li><strong>Gelernte Parameter:</strong> Die <strong>Gewichte (\(w_i\))</strong> und der <strong>Bias (\(b\))</strong> sind die Parameter, die das Netzwerk während des Trainingsprozesses anpasst, um eine spezifische Aufgabe zu lösen.</li>
             <li><strong>Gewählter Hyperparameter:</strong> Die <strong>Aktivierungsfunktion (\(\varphi\))</strong> wird typischerweise vom Netzwerkdesigner im Voraus ausgewählt (obwohl es fortgeschrittene Techniken gibt, bei denen auch dies gelernt werden kann). Unterschiedliche Wahlen von \(\varphi\) eignen sich für verschiedene Aufgaben oder Netzwerkschichten.</li>
         </ul>
-        <div class="continue-button" onclick="showNextSection(15)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(17)">Weiter</div>
     </section>
 
-    <section id="section15">
+    <section id="section17">
         <div class="faq-section">
             <h3>Häufig gestellte Fragen (FAQ)</h3>
             <h4>Warum brauchen wir den Bias-Term? Können wir nicht einfach die Gewichte anpassen?</h4>
             <p>Super Frage! Stell dir die gewichtete Summe \(\sum(w_i x_i)\) als eine Linie oder Ebene (in höheren Dimensionen) vor. Der Bias \(b\) erlaubt uns, diese Linie/Ebene zu <em>verschieben</em>. Ohne den Bias müsste die vom Neuron erzeugte Entscheidungsgrenze immer durch den Ursprung verlaufen (wo alle Eingaben null sind). Der Bias gibt dem Neuron mehr Flexibilität, seine Entscheidungsgrenze dort zu platzieren, wo sie am besten zur Trennung der Daten benötigt wird.</p>
         </div>
-        <div class="continue-button" onclick="showNextSection(16)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(18)">Weiter</div>
     </section>
 
-    <section id="section16">
+    <section id="section18">
         <h2>Zusammenfassung der Lektion</h2>
         <p>Großartig! Wir haben das künstliche Neuron entschlüsselt:</p>
         <ul>
@@ -1236,10 +1246,10 @@
             <li><strong>Berechnung:</strong> Es berechnet \(a = \varphi( \sum w_i x_i + b )\).</li> <!-- Simplified from display math -->
             <li><strong>Lernen:</strong> Gewichte und Bias werden gelernt; die Aktivierungsfunktion wird normalerweise gewählt.</li>
         </ul>
-        <div class="continue-button" onclick="showNextSection(17)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(19)">Weiter</div>
     </section>
 
-    <section id="section17">
+    <section id="section19">
         <div class="test-your-knowledge">
             <h3>Teste dein Wissen</h3>
             <h4>Was ist der Hauptzweck der Gewichte (\(w_i\)) in einem künstlichen Neuron?</h4>
@@ -1261,15 +1271,15 @@
                 <p>Der Wertebereich der Ausgabe hängt ganz von der gewählten Aktivierungsfunktion \(\varphi\) ab.</p>
             </div>
         </div>
-        <div class="continue-button" onclick="showNextSection(18)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(20)">Weiter</div>
     </section>
 
-    <section id="section18">
+    <section id="section20">
         <p>Wir verstehen jetzt den grundlegenden Baustein. In der nächsten Lektion sehen wir, wie wir diese Neuronen zu Schichten verbinden, um leistungsstarke Neuronale Netze zu erstellen!</p>
-        <div class="continue-button" onclick="showNextSection(19)">Weiter</div>
+        <div class="continue-button" onclick="showNextSection(21)">Weiter</div>
     </section>
 
-    <section id="section19">
+    <section id="section21">
         <a href="https://sebastianvauth.github.io/neuralnetworks_3/">Hier geht's zum nächsten Learning Nugget!</a>
     </section>
 
